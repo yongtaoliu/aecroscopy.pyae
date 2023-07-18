@@ -1,0 +1,19 @@
+# format: jb-book
+format: jb-article
+root: intro
+options:
+  numbered: False
+sections:
+- file: python_guide/intro
+  sections: 
+  - file: python_guide/introduction_notebook
+- file: ht_workflows/ht
+  sections:
+  - file: ht_workflows/ht_domain_writing_experiment
+  - file: ht_workflows/ht_domain_writing_analysis
+# - file: Machine Learning Driven Workflows
+  # numbered: true
+  # chapters:
+  # - file: ml_workflows/ml_dkl
+  # - file: ml_workflows/ml_hypoal
+  # - file: ml_workflows/ml_resnet
