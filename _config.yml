@@ -25,7 +25,7 @@ html:
   use_repository_button: True
   use_edit_page_button: False
   home_page_in_navbar: True
-  baseurl: "https://github.com/yongtaoliu/aecroscopy.pyae"
+  baseurl: "https://github.com/yongtaoliu"
   comments:
     hypothesis: false
     utterances: false
