@@ -3,7 +3,7 @@
 
 title: AEcroscopy
 author: Yongtao Liu
-logo: LOGO.png
+logo: https://github.com/yongtaoliu/aecroscopy.pyae/LOGO.png
 
 # Force re-execution of notebooks on each build.
 
