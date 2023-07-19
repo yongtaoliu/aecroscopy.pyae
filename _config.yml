@@ -3,7 +3,7 @@
 
 title: AEcroscopy
 author: Yongtao Liu
-logo: LOGO.png
+logo: https://github.com/yongtaoliu/aecroscopy.pyae/LOGO.png
 
 # Force re-execution of notebooks on each build.
 
@@ -20,7 +20,7 @@ repository:
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  favicon: LOGO.png  # A path to a favicon image
+  favicon: https://github.com/yongtaoliu/aecroscopy.pyae/LOGO.png  # A path to a favicon image
   use_issues_button: False
   use_repository_button: True
   use_edit_page_button: False
