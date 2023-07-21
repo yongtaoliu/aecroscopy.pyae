@@ -1,0 +1,909 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Ensemble ResNet for in-situ Spectroscopy &#8212; AEcroscopy</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_3_autonomous_experimentation/ml_resnet';</script>
+    <link rel="canonical" href="https://github.com/yongtaoliu/chapter_3_autonomous_experimentation/ml_resnet.html" />
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="About Edge Computing" href="../chapter_5_edge_computing/ec_intro.html" />
+    <link rel="prev" title="Hypothesis Leanring Domain Growth" href="ml_hypoal.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../welcome_intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../welcome_intro.html">
+                    Welcome to AEcroscopy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_getstart/getstart_intro.html">Get Started</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1_introduction/aecroscopy_command_intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Experimentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_automated_experimentation/ht_intro.html">About Automated Experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_automated_experimentation/ht_domain_writing.html">Domain Writing Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_automated_experimentation/ht_wall_thickness.html">Wall Thickness Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Autonomous Experimentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ae_intro.html">About Autonomous Experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ml_dkl.html">Deep Kernel Learning driven piezoresponse spectroscopy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ml_hypoal.html">Hypothesis Leanring Domain Growth</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ensemble ResNet for in-situ Spectroscopy</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Edge Computing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5_edge_computing/ec_intro.html">About Edge Computing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">LLM in AEcroscopy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_llm_in_aecroscopy/llm_intro.html">About Using LLM in AEcroscopy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User Contribution</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_7_user_contribution/uc_intro.html">About User Contribution</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Publications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_8_publications/p_intro.html">About Publications</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/yongtaoliu/yongtaoliu.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_3_autonomous_experimentation/ml_resnet.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ensemble ResNet for in-situ Spectroscopy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ensemble ResNet for in-situ Spectroscopy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import">Install and Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-bepyae-exe-and-set-vi">Start BEPyAE.exe and set VI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-igor-ar18">Initialize Igor AR18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-tip-parameters">Set tip parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-io">Set IO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-be-pulse-parameters">Set BE pulse parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#be-line-scan-to-test-be-parameters">BE Line scan to test BE parameters</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-starts">Experiment Starts</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-to-expeirment-set-a-directory-for-saving-data">Prior to expeirment, set a directory for saving data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-perform-an-image-measurement-e-g-bepfm">Step 1. Perform an image measurement, e.g., BEPFM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-pick-the-image-channel-involving-the-target-objects">Step 2. Pick the image channel involving the target objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-pre-trained-resnet-idenfies-target-objects">Step 3. Pre-trained ResNet idenfies target objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-extract-coordinates-of-target-objects">Step 4. Extract coordinates of target objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-perform-pre-planned-measurements-e-g-beps-at-target-locations">Step 5. Perform pre-planned measurements (e.g., BEPS) at target locations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-save-all-results-as-an-h5-file">Step 6. Save all results as an h5 file</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ensemble-resnet-for-in-situ-spectroscopy">
+<h1>Ensemble ResNet for in-situ Spectroscopy<a class="headerlink" href="#ensemble-resnet-for-in-situ-spectroscopy" title="Permalink to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(_{Yongtao}\)</span> <span class="math notranslate nohighlight">\(_{Liu,}\)</span> <span class="math notranslate nohighlight">\(_{liuy3&#64;ornl.gov}\)</span></p>
+<p><span class="math notranslate nohighlight">\(_{July}\)</span> <span class="math notranslate nohighlight">\(_{2023}\)</span></p>
+<section id="install-and-import">
+<h2>Install and Import<a class="headerlink" href="#install-and-import" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">win32com.client</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">h5py</span>
+<span class="kn">import</span> <span class="nn">sidpy</span>
+<span class="kn">import</span> <span class="nn">pyNSID</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">atomai</span> <span class="k">as</span> <span class="nn">aoi</span>
+
+<span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">gaussian_filter</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+<span class="kn">from</span> <span class="nn">skimage.morphology</span> <span class="kn">import</span> <span class="n">skeletonize</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">euclidean_distances</span>
+
+
+<span class="c1"># import acquition.py</span>
+<span class="kn">from</span> <span class="nn">Acquisition_v0_6</span> <span class="kn">import</span> <span class="n">Acquisition</span>   <span class="c1"># include the Acquistion_v0.py in the same directory</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="start-bepyae-exe-and-set-vi">
+<h2>Start BEPyAE.exe and set VI<a class="headerlink" href="#start-bepyae-exe-and-set-vi" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Start BEPyAE.ext</p></li>
+<li><p>Set VI of BEPyAE; if this version includes PyScanner, also set VIs for PyScanner</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span> <span class="o">=</span> <span class="n">Acquisition</span><span class="p">(</span><span class="n">exe_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;G:\My Drive\AE\PyAE\BEPyAE 060123 01\BEPyAE.exe&quot;</span><span class="p">)</span>   <span class="c1"># exe_path is the directory of BEPyAE; </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initialize-igor-ar18">
+<h2>Initialize Igor AR18<a class="headerlink" href="#initialize-igor-ar18" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Set offline development</p></li>
+<li><p>Build a connection between BEPyAE and AR18</p></li>
+<li><p>Get parameters in AR18</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span><span class="o">.</span><span class="n">init_BEPyAE</span><span class="p">(</span><span class="n">offline_development</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># set offline_development=True if doing offline development</span>
+                                                <span class="c1"># executing this will also initlize AR18</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-tip-parameters">
+<h2>Set tip parameters<a class="headerlink" href="#set-tip-parameters" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>set setpoint, tip locations</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span><span class="o">.</span><span class="n">tip_control</span><span class="p">(</span><span class="n">tip_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;set_point_V_00&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;next_x_pos_00&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;next_y_pos_01&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+                   <span class="n">do_move_tip</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                   <span class="n">do_set_setpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># Executing this code will set setpoint to 1 V, </span>
+                                           <span class="c1"># and move tip to location [0.5, 0.5]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setpoint is:  1.0
+Tip parameters are:  (-0.5, 0.5, 0.5)
+Please reset if some parameters are incorrect
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-io">
+<h2>Set IO<a class="headerlink" href="#set-io" title="Permalink to this heading">#</a></h2>
+<p>This defines IO parameters, such as AFM platform: AR18, amplifiers, channel data types, etc</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span><span class="o">.</span><span class="n">define_io_cluster</span><span class="p">(</span><span class="n">IO_cluster_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;analog_output_amplifier_06&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+                                                  <span class="s2">&quot;channel_01_type_07&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+                                                  <span class="s2">&quot;channel_02_type_08&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;channel_03_type_09&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IO control parameters are:  (&#39;0 Cypher AR18&#39;, &#39;6124&#39;, 4000000.0, 10.0, 10.0, &#39;AC and DC on AO0&#39;, 10.0, &#39;topography&#39;, &#39;current&#39;, &#39;aux&#39;, &#39;external&#39;)
+Please reset if some parameters are incorrect
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-be-pulse-parameters">
+<h2>Set BE pulse parameters<a class="headerlink" href="#set-be-pulse-parameters" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set BE parameters</span>
+<span class="n">newexp</span><span class="o">.</span><span class="n">define_be_parms</span><span class="p">(</span><span class="n">be_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;center_frequency_Hz_00&quot;</span><span class="p">:</span> <span class="mi">335</span><span class="p">,</span> <span class="s2">&quot;band_width_Hz_01&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+                                       <span class="s2">&quot;amplitude_V_02&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;phase_variation_03&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                                       <span class="s2">&quot;repeats_04&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;req_pulse_duration_s_05&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                                       <span class="s2">&quot;auto_smooth_ring_06&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> 
+                      <span class="n">do_create_be_waveform</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BE parameters are:  (335000.0, 100000.0, 1.0, 1.0, 4, 0.004, 1, 3352.2952763920002, 0.12159459061880915)
+Please reset if some parameters are incorrect
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(335000.0,
+ 100000.0,
+ 1.0,
+ 1.0,
+ 4,
+ 0.004,
+ 1,
+ 3352.2952763920002,
+ 0.12159459061880915)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="be-line-scan-to-test-be-parameters">
+<h2>BE Line scan to test BE parameters<a class="headerlink" href="#be-line-scan-to-test-be-parameters" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>This is a single BE line scan</p></li>
+<li><p>This returns 5 datasets: quick_fitting, complex spectra, and 3 channels</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do a single line scan</span>
+<span class="n">qk_fit</span><span class="p">,</span> <span class="n">com_spec</span><span class="p">,</span> <span class="n">chn1</span><span class="p">,</span> <span class="n">chn2</span><span class="p">,</span> <span class="n">chn3</span> <span class="o">=</span> <span class="n">newexp</span><span class="o">.</span><span class="n">do_line_scan</span><span class="p">(</span><span class="n">line_scan_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;num_BE_pulses_01&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+                                                                                 <span class="s2">&quot;start_x_pos_00&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;start_y_pos_01&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                                                                                 <span class="s2">&quot;stop_x_pos_02&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;stop_y_pos_03&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+                                                         <span class="n">upload_to_daq</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">do_line_scan</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>voltage offset and number of BE pulse are:  (0.0, 32)
+line scan start and end positions:  (-0.5, 0.0, 0.5, 0.0)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="experiment-starts">
+<h1>Experiment Starts<a class="headerlink" href="#experiment-starts" title="Permalink to this heading">#</a></h1>
+<section id="prior-to-expeirment-set-a-directory-for-saving-data">
+<h2>Prior to expeirment, set a directory for saving data<a class="headerlink" href="#prior-to-expeirment-set-a-directory-for-saving-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;/content/save directory/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_25324</span><span class="o">/</span><span class="mf">3425510952.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;/content/save directory/&quot;</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [WinError 3] The system cannot find the path specified: &#39;/content/save directory/&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-1-perform-an-image-measurement-e-g-bepfm">
+<h2>Step 1. Perform an image measurement, e.g., BEPFM<a class="headerlink" href="#step-1-perform-an-image-measurement-e-g-bepfm" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dset_pfm</span><span class="p">,</span> <span class="n">dset_chns</span><span class="p">,</span> <span class="n">dset_cs</span> <span class="o">=</span> <span class="n">newexp</span><span class="o">.</span><span class="n">raster_scan</span><span class="p">(</span><span class="n">raster_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;scan_pixel&quot;</span><span class="p">:</span> <span class="mi">256</span><span class="p">,</span> <span class="s2">&quot;scan_x_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
+                                                                       <span class="s2">&quot;scan_y_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="s2">&quot;scan_x_stop&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+                                                                       <span class="s2">&quot;scan_y_stop&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span> <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;BEPFM&quot;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">,</span> <span class="n">ax5</span><span class="p">,</span> <span class="n">ax6</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">ax5</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_chns</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:])</span>
+<span class="n">ax6</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_chns</span><span class="p">[</span><span class="mi">1</span><span class="p">,:,:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20 locations are ready for experiments
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-pick-the-image-channel-involving-the-target-objects">
+<h2>Step 2. Pick the image channel involving the target objects<a class="headerlink" href="#step-2-pick-the-image-channel-involving-the-target-objects" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load target image</span>
+<span class="n">target_raw</span> <span class="o">=</span> <span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">target_raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">target_raw</span><span class="p">)</span>
+<span class="c1"># normalize target_img</span>
+<span class="n">target_raw</span> <span class="o">=</span> <span class="p">(</span><span class="n">target_raw</span><span class="o">-</span><span class="n">target_raw</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="p">(</span><span class="n">target_raw</span><span class="o">.</span><span class="n">ptp</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-pre-trained-resnet-idenfies-target-objects">
+<h2>Step 3. Pre-trained ResNet idenfies target objects<a class="headerlink" href="#step-3-pre-trained-resnet-idenfies-target-objects" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load pre-trained ResNet weights</span>
+<span class="n">smodel</span><span class="p">,</span> <span class="n">ensemble</span><span class="o">=</span> <span class="n">aoi</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_ensemble</span><span class="p">(</span><span class="s2">&quot;MHP_Grainboundry_ensemble_metadict.tar&quot;</span><span class="p">)</span>
+
+<span class="c1"># Prediction</span>
+<span class="n">predictor</span> <span class="o">=</span> <span class="n">aoi</span><span class="o">.</span><span class="n">predictors</span><span class="o">.</span><span class="n">EnsemblePredictor</span><span class="p">(</span><span class="n">smodel</span><span class="p">,</span> <span class="n">ensemble</span><span class="p">,</span> <span class="n">nb_classes</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pred_mean</span><span class="p">,</span> <span class="n">pred_var</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">obtained_amp</span><span class="p">)</span>
+<span class="n">target_object</span> <span class="o">=</span> <span class="n">pred_mean</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="n">target_uncertainty</span> <span class="o">=</span> <span class="n">pred_var</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+    
+<span class="c1"># Plot prediction and uncertainty</span>
+<span class="n">f</span><span class="p">,(</span><span class="n">ax0</span><span class="p">,</span> <span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">target_img</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">axis</span> <span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax0</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Raw Image&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">target_object</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Prediction&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">target_uncertainty</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Uncertainty&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-4-extract-coordinates-of-target-objects">
+<h2>Step 4. Extract coordinates of target objects<a class="headerlink" href="#step-4-extract-coordinates-of-target-objects" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert the target object image to a binary image</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">target_object_binary</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">target_object</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+<span class="c1"># skeletonzie the lines to avoide duplicated coordinates corresponding to the same object</span>
+<span class="n">target_object_img</span> <span class="o">=</span> <span class="n">skeletonize</span><span class="p">(</span><span class="n">target_object_binary</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># plot binary image and skeletonize image</span>
+<span class="n">_</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">target_object_binary</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Binary&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">target_object_img</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Skeletonize&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain all target coordinates</span>
+<span class="n">target_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">target_object_img</span><span class="o">==</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span> 
+
+<span class="c1"># Rearange the coordinates to make the route along the object</span>
+<span class="c1"># start at the default first location, ususally this is the lcoation near the bottom left corner</span>
+<span class="n">current_location</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">current_location</span><span class="p">[:,]</span> <span class="o">=</span> <span class="n">target_coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">,]</span> 
+
+<span class="n">pristine_route</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">target_coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">:,])</span>
+<span class="n">new_route</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">current_location</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">pristine_route</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Iterate until move all coordiantes in prisinte route to new route</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="n">euclidean_distances</span><span class="p">(</span><span class="n">current_location</span><span class="p">,</span><span class="n">pristine_route</span><span class="p">)</span> 
+    <span class="n">next_location</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dist</span><span class="o">==</span><span class="n">dist</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span> <span class="c1"># The next location is the one closest to the current location</span>
+    <span class="n">current_location</span> <span class="p">[:,]</span> <span class="o">=</span> <span class="n">route</span><span class="p">[</span><span class="n">next_location</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="c1"># Update current location as the next location</span>
+    <span class="n">new_route</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span> <span class="p">(</span><span class="n">new_route</span><span class="p">,</span> <span class="n">current_location</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># Append next location to the new route</span>
+    <span class="n">pristine_route</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">pristine_route</span><span class="p">,</span> <span class="n">next_loccation</span><span class="p">[:][</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># Remove this locaiton from the prinstine route</span>
+  
+<span class="c1">## Plot the new route</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">new_route</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">new_route</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">new_route</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;jet&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total locations are: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_route</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In some cases, it is not necessary to measure all target locations, so we can skip some.</span>
+<span class="n">skip_every</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">skip_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_route</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]),</span> <span class="n">skip_every</span><span class="p">)</span>  
+<span class="n">measure_coordinates</span> <span class="o">=</span> <span class="n">new_route</span><span class="p">[</span><span class="n">skip_index</span><span class="p">]</span>  <span class="c1"># skip every &#39;skip_every&#39; step to create a measurement coordiantes </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">measure_coordinates</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">measure_coordinates</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">measure_coordinates</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;jet&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Total measurement locations are: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_coordinates</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-5-perform-pre-planned-measurements-e-g-beps-at-target-locations">
+<h2>Step 5. Perform pre-planned measurements (e.g., BEPS) at target locations<a class="headerlink" href="#step-5-perform-pre-planned-measurements-e-g-beps-at-target-locations" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert image coordinates to parameters for probe location</span>
+<span class="n">measure_locations</span> <span class="o">=</span> <span class="n">newexp</span><span class="o">.</span><span class="n">convert_coordinates</span><span class="p">(</span><span class="n">measure_coordinates</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">measure_steps</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">measure_coordinates</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span> <span class="p">(</span><span class="n">measure_steps</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step </span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">measure_steps</span><span class="p">))</span>
+    
+    <span class="c1"># Measurement location</span>
+    <span class="n">next_coordinate</span> <span class="o">=</span> <span class="n">measure_locations</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    
+    <span class="c1"># Do measurement</span>
+    <span class="n">newexp</span><span class="o">.</span><span class="n">do_beps</span><span class="p">(</span><span class="n">measure_locations</span><span class="p">)</span>
+    <span class="n">clear_output</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-6-save-all-results-as-an-h5-file">
+<h2>Step 6. Save all results as an h5 file<a class="headerlink" href="#step-6-save-all-results-as-an-h5-file" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hf</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s2">&quot;Processing_Result&quot;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">hf</span><span class="p">[</span><span class="s1">&#39;Images/Raw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">target_raw</span><span class="p">)</span>
+<span class="n">hf</span><span class="p">[</span><span class="s1">&#39;Images/Prediction&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">target_object</span><span class="p">)</span>
+<span class="n">hf</span><span class="p">[</span><span class="s1">&#39;Images/Uncertainty&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">target_uncertainty</span><span class="p">)</span>
+<span class="n">hf</span><span class="p">[</span><span class="s1">&#39;Images/Binary Object&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">object_binary</span><span class="p">)</span>
+<span class="n">hf</span><span class="p">[</span><span class="s1">&#39;Images/Skeletonize Object&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">target_object_img</span><span class="p">)</span>
+<span class="n">hf</span><span class="p">[</span><span class="s1">&#39;Coordinates/Target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">target_coordinates</span><span class="p">)</span>
+<span class="n">hf</span><span class="p">[</span><span class="s1">&#39;Coordinates/Rearange&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">new_route</span><span class="p">)</span>
+<span class="n">hf</span><span class="p">[</span><span class="s1">&#39;Coordinates/Measure&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measure_coordinates</span><span class="p">)</span>
+<span class="n">hf</span><span class="p">[</span><span class="s1">&#39;Coordinates/Convert&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">measure_locations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_3_autonomous_experimentation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ml_hypoal.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Hypothesis Leanring Domain Growth</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../chapter_5_edge_computing/ec_intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">About Edge Computing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ensemble ResNet for in-situ Spectroscopy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import">Install and Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-bepyae-exe-and-set-vi">Start BEPyAE.exe and set VI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-igor-ar18">Initialize Igor AR18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-tip-parameters">Set tip parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-io">Set IO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-be-pulse-parameters">Set BE pulse parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#be-line-scan-to-test-be-parameters">BE Line scan to test BE parameters</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-starts">Experiment Starts</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-to-expeirment-set-a-directory-for-saving-data">Prior to expeirment, set a directory for saving data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-perform-an-image-measurement-e-g-bepfm">Step 1. Perform an image measurement, e.g., BEPFM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-pick-the-image-channel-involving-the-target-objects">Step 2. Pick the image channel involving the target objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-pre-trained-resnet-idenfies-target-objects">Step 3. Pre-trained ResNet idenfies target objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-extract-coordinates-of-target-objects">Step 4. Extract coordinates of target objects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-perform-pre-planned-measurements-e-g-beps-at-target-locations">Step 5. Perform pre-planned measurements (e.g., BEPS) at target locations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-save-all-results-as-an-h5-file">Step 6. Save all results as an h5 file</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By AEcroscopy Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
