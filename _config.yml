@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: AEcroscopy
-author: Automated Microscopy Team
+author: AEcroscopy Community
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
@@ -13,28 +13,28 @@ execute:
 
 # Information about where the book exists on the web
 repository:
-  url: "https://github.com/yongtaoliu/aecroscopy.pyae"  # Online location of your book
+  url: "https://github.com/yongtaoliu/yongtaoliu.github.io"  # Online location of your book
   path_to_book: ""  # Optional path to your book, relative to the repository root
   branch: main # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
-  favicon: logo.png  # A path to a favicon image
+  favicon: "logo.png"  # A path to a favicon image
   use_issues_button: False
   use_repository_button: True
   use_edit_page_button: False
   home_page_in_navbar: True
-  baseurl: "https://github.com/yongtaoliu/aecroscopy.pyae"
+  baseurl: "https://github.com/yongtaoliu"
   comments:
     hypothesis: false
     utterances: false
 
-# # Advanced and power-user settings
-# sphinx:
-#   extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
-#     - sphinx_inline_tabs
-#   config:
-#     language                : en   # include explicitly for accessibility
-#     mathjax_path            : https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js  # faster by 60-80%
-#     html_js_files           : https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+# Advanced and power-user settings
+sphinx:
+  extra_extensions          :   # A list of extra extensions to load by Sphinx (added to those already used by JB).
+    - sphinx_inline_tabs
+  config:
+    language                : en   # include explicitly for accessibility
+    mathjax_path            : https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js  # faster by 60-80%
+    html_js_files           : https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
