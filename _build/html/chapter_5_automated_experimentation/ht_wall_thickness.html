@@ -1,0 +1,970 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Wall Thickness Workflow &#8212; AEcroscopy</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_5_automated_experimentation/ht_wall_thickness';</script>
+    <link rel="canonical" href="https://github.com/yongtaoliu/chapter_5_automated_experimentation/ht_wall_thickness.html" />
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="About Autonomous Experiment" href="../chapter_6_autonomous_experimentation/ae_intro.html" />
+    <link rel="prev" title="Domain Writing Workflow" href="ht_domain_writing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../welcome_intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../welcome_intro.html">
+                    Welcome to AEcroscopy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_getstart/getstart_intro.html">Get Started</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1_experiment/aecroscopy_command_intro.html">Experiments</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_data_processing/dp_intro.html">About Data Process</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Edge Computing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3_edge_computing/ec_intro.html">About Edge Computing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">LLM in AEcroscopy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4_llm_in_aecroscopy/llm_intro.html">About Using LLM in AEcroscopy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Experimentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ht_intro.html">About Automated Experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ht_domain_writing.html">Domain Writing Workflow</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Wall Thickness Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Autonomous Experimentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_autonomous_experimentation/ae_intro.html">About Autonomous Experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_autonomous_experimentation/ml_dkl.html">Deep Kernel Learning driven piezoresponse spectroscopy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_autonomous_experimentation/ml_hypoal.html">Hypothesis Leanring Domain Growth</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_autonomous_experimentation/ml_resnet.html">Ensemble ResNet for in-situ Spectroscopy</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User Contribution</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_7_user_contribution/uc_intro.html">About User Contribution</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Publications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_8_publications/p_intro.html">About Publications</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/yongtaoliu/yongtaoliu.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_5_automated_experimentation/ht_wall_thickness.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Wall Thickness Workflow</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment">Experiment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-bepyae-exe-and-set-vi">Start BEPyAE.exe and set VI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-igor-ar18">Initialize Igor AR18</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-tip-parameters">Set tip parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-io">Set IO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-be-pulse-parameters">Set BE pulse parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#be-line-scan-to-check-be-parameters">BE Line scan to check BE parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-to-expeirment-set-a-directory-to-save-data">Prior to expeirment, set a directory to save data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-starts">Experiment starts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-establish-ac-amplitude-and-setpoint-parameters">Step 1. Establish AC Amplitude and Setpoint Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-perform-bepfm-to-image-the-domain-wall-with-various-ac-and-setpoint">Step 2. Perform BEPFM to image the domain wall with various AC and setpoint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-experiment-data-analysis">Post Experiment Data Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-directory-and-root-name-of-your-dataset">Set the directory and root name of your dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-all-data">Load all data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-vac-and-setpoint">Load Vac and Setpoint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-data">Plot data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="wall-thickness-workflow">
+<h1>Wall Thickness Workflow<a class="headerlink" href="#wall-thickness-workflow" title="Permalink to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(_{Yongtao}\)</span> <span class="math notranslate nohighlight">\(_{Liu,}\)</span>  <span class="math notranslate nohighlight">\(_{liuy3&#64;ornl.gov}\)</span></p>
+<p><span class="math notranslate nohighlight">\(_{July}\)</span> <span class="math notranslate nohighlight">\(_{2023}\)</span></p>
+<p>Piezoresponse force microscopy (PFM) is a powerful technique to study ferroelectrics at the nanoscale. In PFM measurements, an AC voltage is applied to the sample surface through tip and the response of the material is detected, allowing researchers to characterize ferroelectric domains and domain walls. However, the behavior of ferroelectric domain walls can be influenced by the AC voltage and the force (i.e., driven amplitude and set point) applied to the sample surface. We have the chance to optimize the imaging conditions to better characterize and study ferroelectric domain walls by carefully choosing these parameters.</p>
+<p>This notebook is the workflow to study ferroelectric domain walls as a function of drive amplitude and setpoint. This notebook contains two parts: first is experimentation, second is data analysis. Both parts work independently.</p>
+<section id="experiment">
+<h2>Experiment<a class="headerlink" href="#experiment" title="Permalink to this heading">#</a></h2>
+<section id="import">
+<h3>Import<a class="headerlink" href="#import" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">win32com.client</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">h5py</span>
+<span class="kn">import</span> <span class="nn">sidpy</span>
+<span class="kn">import</span> <span class="nn">pyNSID</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">AEcroscopy</span> <span class="kn">import</span> <span class="n">Acquisition</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="start-bepyae-exe-and-set-vi">
+<h3>Start BEPyAE.exe and set VI<a class="headerlink" href="#start-bepyae-exe-and-set-vi" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Start BEPyAE.ext</p></li>
+<li><p>Set VI of BEPyAE; if this version includes PyScanner, also set VIs for PyScanner</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span> <span class="o">=</span> <span class="n">Acquisition</span><span class="p">(</span><span class="n">exe_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\BEPyAE 060523 01\BEPyAE.exe&quot;</span><span class="p">)</span>   
+<span class="c1"># exe_path is the directory of BEPyAE; </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initialize-igor-ar18">
+<h3>Initialize Igor AR18<a class="headerlink" href="#initialize-igor-ar18" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Set offline development</p></li>
+<li><p>Build a connection between BEPyAE and AR18</p></li>
+<li><p>Get parameters in AR18</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span><span class="o">.</span><span class="n">init_BEPyAE</span><span class="p">(</span><span class="n">offline_development</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># set offline_development=True if doing offline development</span>
+                                                <span class="c1"># executing this will also initlize AR18</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-tip-parameters">
+<h3>Set tip parameters<a class="headerlink" href="#set-tip-parameters" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>set setpoint, tip locations</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span><span class="o">.</span><span class="n">tip_control</span><span class="p">(</span><span class="n">tip_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;set_point_V_00&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;next_x_pos_00&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;next_y_pos_01&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+                   <span class="n">do_move_tip</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                   <span class="n">do_set_setpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># Executing this code will set setpoint to 1 V, </span>
+                                           <span class="c1"># and move tip to location [0, 0]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-io">
+<h3>Set IO<a class="headerlink" href="#set-io" title="Permalink to this heading">#</a></h3>
+<p>This defines IO parameters, such as AFM platform: AR18, amplifiers, channel data types, etc</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span><span class="o">.</span><span class="n">define_io_cluster</span><span class="p">(</span><span class="n">IO_cluster_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;analog_output_amplifier_06&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+                                                  <span class="s2">&quot;channel_01_type_07&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+                                                  <span class="s2">&quot;channel_02_type_08&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                                                  <span class="s2">&quot;channel_03_type_09&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-be-pulse-parameters">
+<h3>Set BE pulse parameters<a class="headerlink" href="#set-be-pulse-parameters" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set BE parameters</span>
+<span class="n">newexp</span><span class="o">.</span><span class="n">define_be_parms</span><span class="p">(</span><span class="n">be_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;center_frequency_Hz_00&quot;</span><span class="p">:</span> <span class="mi">350</span><span class="p">,</span> <span class="s2">&quot;band_width_Hz_01&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;amplitude_V_02&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+                                        <span class="s2">&quot;phase_variation_03&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;repeats_04&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;req_pulse_duration_s_05&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                                        <span class="s2">&quot;auto_smooth_ring_06&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+                       <span class="n">do_create_be_waveform</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="be-line-scan-to-check-be-parameters">
+<h3>BE Line scan to check BE parameters<a class="headerlink" href="#be-line-scan-to-check-be-parameters" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>This is a single BE line scan</p></li>
+<li><p>This returns 5 datasets: quick_fitting, complex spectra, and 3 channels</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do a single line scan</span>
+<span class="n">qk_fit</span><span class="p">,</span> <span class="n">com_spec</span><span class="p">,</span> <span class="n">chn1</span><span class="p">,</span> <span class="n">chn2</span><span class="p">,</span> <span class="n">chn3</span> <span class="o">=</span> <span class="n">newexp</span><span class="o">.</span><span class="n">do_line_scan</span><span class="p">(</span><span class="n">line_scan_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;num_BE_pulses_01&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+                                                                                 <span class="s2">&quot;start_x_pos_00&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;start_y_pos_01&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                                                                                 <span class="s2">&quot;stop_x_pos_02&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;stop_y_pos_03&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+                                                         <span class="n">upload_to_daq</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">do_line_scan</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="prior-to-expeirment-set-a-directory-to-save-data">
+<h3>Prior to expeirment, set a directory to save data<a class="headerlink" href="#prior-to-expeirment-set-a-directory-to-save-data" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;D:\WEST User data\Experiment&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="experiment-starts">
+<h2>Experiment starts<a class="headerlink" href="#experiment-starts" title="Permalink to this heading">#</a></h2>
+<section id="step-1-establish-ac-amplitude-and-setpoint-parameters">
+<h3>Step 1. Establish AC Amplitude and Setpoint Parameters<a class="headerlink" href="#step-1-establish-ac-amplitude-and-setpoint-parameters" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># uniformly distributed AC amplitude</span>
+<span class="n">min_ac</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">max_ac</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">num_ac</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">Vac</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">min_ac</span><span class="p">,</span> <span class="n">max_ac</span><span class="p">,</span> <span class="n">num_x</span><span class="p">)</span>  <span class="c1"># AC amplitude</span>
+
+<span class="c1"># uniformly distributed setpoint values</span>
+<span class="n">min_setpoint</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">max_setpoint</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">num_setpoint</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">setpoint</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">min_setpoint</span><span class="p">,</span> <span class="n">max_setpoint</span><span class="p">,</span> <span class="n">num_setpoint</span><span class="p">)</span>  <span class="c1"># Setpoint</span>
+
+<span class="c1"># Establish AC and setpoint parameters array</span>
+<span class="n">Vac_setpoint</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">Vac</span><span class="p">,</span> <span class="n">setpoint</span><span class="p">)</span>
+<span class="n">Vac</span> <span class="o">=</span> <span class="n">Vac_setpoint</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">setpoint</span> <span class="o">=</span> <span class="n">Vac_setpoint</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> AC and setpoint parameters are ready for expierments&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Vac</span><span class="p">)))</span>
+    
+<span class="c1"># save pulse condition</span>
+<span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;Vac_setpoint.npy&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">Vac</span><span class="p">,</span> <span class="n">setpoint</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-perform-bepfm-to-image-the-domain-wall-with-various-ac-and-setpoint">
+<h3>Step 2. Perform BEPFM to image the domain wall with various AC and setpoint<a class="headerlink" href="#step-2-perform-bepfm-to-image-the-domain-wall-with-various-ac-and-setpoint" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tpdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Vac</span><span class="p">))):</span>
+    <span class="c1"># select AC and setpoint</span>
+    <span class="n">be_amp</span> <span class="o">=</span> <span class="n">Vac</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">spoint</span> <span class="o">=</span> <span class="n">setpoint</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="c1"># Set setpoint</span>
+    <span class="n">newexp</span><span class="o">.</span><span class="n">tip_control</span><span class="p">(</span><span class="n">tip_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;set_point_V_00&quot;</span><span class="p">:</span> <span class="n">spoint</span><span class="p">},</span> <span class="n">do_move_tip</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">do_set_setpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Set BE pulse amplitude</span>
+    <span class="n">newexp</span><span class="o">.</span><span class="n">define_be_parms</span><span class="p">(</span><span class="n">be_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;center_frequency_Hz_00&quot;</span><span class="p">:</span> <span class="mi">335</span><span class="p">,</span> <span class="s2">&quot;band_width_Hz_01&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;amplitude_V_02&quot;</span><span class="p">:</span> <span class="n">be_amp</span><span class="p">},</span>
+                           <span class="n">do_create_be_waveform</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># Perform BEPFM image measurement</span>
+    <span class="n">dset_pfm</span><span class="p">,</span> <span class="n">dset_chns</span><span class="p">,</span> <span class="n">dset_cs</span> <span class="o">=</span> <span class="n">newexp</span><span class="o">.</span><span class="n">raster_scan</span><span class="p">(</span><span class="n">raster_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tip_voltage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;scan_pixel&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span> 
+                                                                           <span class="s2">&quot;scan_x_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;scan_y_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
+                                                                           <span class="s2">&quot;scan_x_stop&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;scan_y_stop&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span>
+                                                      <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;Domain_wall_width&quot;</span><span class="p">,</span> <span class="n">ploton</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">,</span> <span class="n">ax5</span><span class="p">,</span> <span class="n">ax6</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">);</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Amplitude&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">);</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">);</span> <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Q Factor&quot;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">3</span><span class="p">],</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">);</span> <span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Phase&quot;</span><span class="p">)</span>
+    <span class="n">ax5</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_chns</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:],</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">);</span> <span class="n">ax5</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Topography&quot;</span><span class="p">)</span>
+    <span class="n">ax6</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_chns</span><span class="p">[</span><span class="mi">1</span><span class="p">,:,:],</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">);</span> <span class="n">ax6</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Deflection&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="post-experiment-data-analysis">
+<h2>Post Experiment Data Analysis<a class="headerlink" href="#post-experiment-data-analysis" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="id1">
+<h2>Import<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">h5py</span>
+<span class="kn">import</span> <span class="nn">sidpy</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">imutils</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-the-directory-and-root-name-of-your-dataset">
+<h2>Set the directory and root name of your dataset<a class="headerlink" href="#set-the-directory-and-root-name-of-your-dataset" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># directory</span>
+<span class="n">path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\Experiment&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-all-data">
+<h2>Load all data<a class="headerlink" href="#load-all-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">count_imgs</span> <span class="o">=</span> <span class="mi">64</span> <span class="c1"># variable of how many images you have in the directory</span>
+<span class="n">pixel</span> <span class="o">=</span> <span class="mi">64</span>  <span class="c1"># pixel of your image</span>
+
+<span class="c1"># change working directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># create arrays for all data</span>
+<span class="n">amplitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">count_imgs</span><span class="p">,</span> <span class="n">pixel</span><span class="p">,</span> <span class="n">pixel</span><span class="p">))</span>
+<span class="n">phase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">count_imgs</span><span class="p">,</span> <span class="n">pixel</span><span class="p">,</span> <span class="n">pixel</span><span class="p">))</span>
+<span class="n">frequency</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">count_imgs</span><span class="p">,</span> <span class="n">pixel</span><span class="p">,</span> <span class="n">pixel</span><span class="p">))</span>
+<span class="n">qfactor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">count_imgs</span><span class="p">,</span> <span class="n">pixel</span><span class="p">,</span> <span class="n">pixel</span><span class="p">))</span>
+<span class="n">topography</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">count_imgs</span><span class="p">,</span> <span class="n">pixel</span><span class="p">,</span> <span class="n">pixel</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">count_imgs</span><span class="p">):</span>
+    <span class="n">h5</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="s1">&#39;Domain_wall_width_1um_</span><span class="si">{}</span><span class="s1">_0.hf5&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+    <span class="n">be_qf</span> <span class="o">=</span> <span class="n">h5</span><span class="p">[</span><span class="s2">&quot;BE Quick Fitting/Quick Fitting/Quick Fitting&quot;</span><span class="p">]</span>
+    <span class="n">be_ch</span> <span class="o">=</span> <span class="n">h5</span><span class="p">[</span><span class="s2">&quot;BE Channels/Channels/Channels&quot;</span><span class="p">]</span>
+    <span class="n">amplitude</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span> <span class="o">=</span> <span class="n">be_qf</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">phase</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span> <span class="o">=</span> <span class="n">be_qf</span><span class="p">[:,:,</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">frequency</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span> <span class="o">=</span> <span class="n">be_qf</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">qfactor</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span> <span class="o">=</span> <span class="n">be_qf</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">topography</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span> <span class="o">=</span> <span class="n">be_ch</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:,</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">nor_amplitude</span> <span class="o">=</span> <span class="p">(</span><span class="n">amplitude</span><span class="o">-</span><span class="n">amplitude</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="n">amplitude</span><span class="o">.</span><span class="n">ptp</span><span class="p">()</span>
+<span class="n">nor_phase</span> <span class="o">=</span> <span class="p">(</span><span class="n">phase</span> <span class="o">-</span> <span class="n">phase</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="n">phase</span><span class="o">.</span><span class="n">ptp</span><span class="p">()</span>
+<span class="n">nor_frequency</span> <span class="o">=</span> <span class="p">(</span><span class="n">frequency</span> <span class="o">-</span> <span class="n">frequency</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="n">frequency</span><span class="o">.</span><span class="n">ptp</span><span class="p">()</span>
+<span class="n">nor_topography</span> <span class="o">=</span> <span class="p">(</span><span class="n">topography</span> <span class="o">-</span> <span class="n">topography</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="n">topography</span><span class="o">.</span><span class="n">ptp</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-vac-and-setpoint">
+<h2>Load Vac and Setpoint<a class="headerlink" href="#load-vac-and-setpoint" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vac_setpoint</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;Vac_setpoint.npy&quot;</span><span class="p">)</span>
+<span class="n">vac_setpoint</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 0.5, 1. , 1.5, 2. , 2.5,
+        3. , 3.5, 4. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 0.5, 1. ,
+        1.5, 2. , 2.5, 3. , 3.5, 4. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5,
+        4. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 0.5, 1. , 1.5, 2. ,
+        2.5, 3. , 3.5, 4. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. ],
+       [0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1. , 1. , 1. , 1. , 1. ,
+        1. , 1. , 1. , 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 2. , 2. ,
+        2. , 2. , 2. , 2. , 2. , 2. , 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5,
+        2.5, 3. , 3. , 3. , 3. , 3. , 3. , 3. , 3. , 3.5, 3.5, 3.5, 3.5,
+        3.5, 3.5, 3.5, 3.5, 4. , 4. , 4. , 4. , 4. , 4. , 4. , 4. ]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-data">
+<h2>Plot data<a class="headerlink" href="#plot-data" title="Permalink to this heading">#</a></h2>
+<p>Plot all results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">count_imgs</span><span class="p">):</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.06</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">cm</span> <span class="o">=</span> <span class="s1">&#39;viridis&#39;</span>
+    <span class="n">shrink</span> <span class="o">=</span> <span class="mf">0.6</span>
+
+    <span class="n">im0</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">amplitude</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shrink</span> <span class="o">=</span> <span class="n">shrink</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Amplitude (a.u.)&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+    <span class="n">im1</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">phase</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">],</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">shrink</span> <span class="o">=</span> <span class="n">shrink</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Phase (rad)&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+    <span class="n">im2</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">frequency</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">]</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">shrink</span> <span class="o">=</span> <span class="n">shrink</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Frequency (kHz)&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+    <span class="n">im3</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">qfactor</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">],</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">250</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im3</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">shrink</span> <span class="o">=</span> <span class="n">shrink</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Q Factor&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/78a4f901ad1f7edfe252252cf24a86d05d96b84dff96b389f7071c0fdc36e6e7.png" src="../_images/78a4f901ad1f7edfe252252cf24a86d05d96b84dff96b389f7071c0fdc36e6e7.png" />
+<img alt="../_images/36a0c6e06cff0eae254345904c8fe4716b0252fc7bca1eb504815a044a436854.png" src="../_images/36a0c6e06cff0eae254345904c8fe4716b0252fc7bca1eb504815a044a436854.png" />
+<img alt="../_images/2fae8c8e47936dd0f149895a0d625774769549b8bcb423f052cb014e168c5258.png" src="../_images/2fae8c8e47936dd0f149895a0d625774769549b8bcb423f052cb014e168c5258.png" />
+<img alt="../_images/90919471272fcdf5e816689a8391913be435a1f9ee2f78f5ea0b655e2ae514d1.png" src="../_images/90919471272fcdf5e816689a8391913be435a1f9ee2f78f5ea0b655e2ae514d1.png" />
+<img alt="../_images/89f073371ed672cc9a60ee3db5ae1053c8fb4e78a14c357bb1342adbe67786c0.png" src="../_images/89f073371ed672cc9a60ee3db5ae1053c8fb4e78a14c357bb1342adbe67786c0.png" />
+<img alt="../_images/d1a04409f726af0fba93d85e574b4ac454ab1341fa62039bee09be680b453f15.png" src="../_images/d1a04409f726af0fba93d85e574b4ac454ab1341fa62039bee09be680b453f15.png" />
+<img alt="../_images/3278109f28426bac7c454a9ad7971e7758dd56da01cbe4fb08f2e40f2e5211ba.png" src="../_images/3278109f28426bac7c454a9ad7971e7758dd56da01cbe4fb08f2e40f2e5211ba.png" />
+<img alt="../_images/d3e19d7f8fdbe540760ea75d67b6320325a4f6b5abf29887990da1dc30218714.png" src="../_images/d3e19d7f8fdbe540760ea75d67b6320325a4f6b5abf29887990da1dc30218714.png" />
+<img alt="../_images/d5b6808ef18a399ccbc7892950f948c4ebb9e7c3f96bcdf846df582bde040177.png" src="../_images/d5b6808ef18a399ccbc7892950f948c4ebb9e7c3f96bcdf846df582bde040177.png" />
+<img alt="../_images/e749f9ac281f64af5f7a466122fd33f7cf5ce477a412ab223782dc12d4697765.png" src="../_images/e749f9ac281f64af5f7a466122fd33f7cf5ce477a412ab223782dc12d4697765.png" />
+<img alt="../_images/1925970eed751252d6967f6e95b7bbe05df875b420c96d5874652061634157b9.png" src="../_images/1925970eed751252d6967f6e95b7bbe05df875b420c96d5874652061634157b9.png" />
+<img alt="../_images/b1a2654e07f81d5dfc3333bc2601a1c2ad72710d805e3cf9accc25041b83a926.png" src="../_images/b1a2654e07f81d5dfc3333bc2601a1c2ad72710d805e3cf9accc25041b83a926.png" />
+<img alt="../_images/03e12251561eacaff7720b4b21c9f0a39937776eec277d146cc1bb8244b200d9.png" src="../_images/03e12251561eacaff7720b4b21c9f0a39937776eec277d146cc1bb8244b200d9.png" />
+<img alt="../_images/856c5a93a715c6fbaa0ee6d776638d5729511f35ba8853588ce19f1ba16c5bac.png" src="../_images/856c5a93a715c6fbaa0ee6d776638d5729511f35ba8853588ce19f1ba16c5bac.png" />
+<img alt="../_images/4ad8f0134040248d5f68c9333bddd19b8c803eadce24c25d0a525a3cb52ad8ae.png" src="../_images/4ad8f0134040248d5f68c9333bddd19b8c803eadce24c25d0a525a3cb52ad8ae.png" />
+<img alt="../_images/60b11ede50893daa0623cdb8407832b99c9742bfc2a4d4af88aa4a7723d5bb68.png" src="../_images/60b11ede50893daa0623cdb8407832b99c9742bfc2a4d4af88aa4a7723d5bb68.png" />
+<img alt="../_images/c68fb5e983c0bf27532a7f80c4edf42058ea57d3769682e9ded87d8910b4c7cd.png" src="../_images/c68fb5e983c0bf27532a7f80c4edf42058ea57d3769682e9ded87d8910b4c7cd.png" />
+<img alt="../_images/a9ba0f025fc39c02a8c74352d85faf9be6bba0c267f3d3b9f0804318205fbbb0.png" src="../_images/a9ba0f025fc39c02a8c74352d85faf9be6bba0c267f3d3b9f0804318205fbbb0.png" />
+<img alt="../_images/bb3b228426bf3b0c5c69a8a68dc8a7f466e1969ddbbff6f30b353a5153a1a9bf.png" src="../_images/bb3b228426bf3b0c5c69a8a68dc8a7f466e1969ddbbff6f30b353a5153a1a9bf.png" />
+<img alt="../_images/684b7280a1c89333cc3651ecfaadd4dcca5348bb63bccebf88ee91d71152d2c4.png" src="../_images/684b7280a1c89333cc3651ecfaadd4dcca5348bb63bccebf88ee91d71152d2c4.png" />
+<img alt="../_images/98ed9d7400afdbbf246d62932acbf94887fc2ea809a896f5e68a614d4cef852f.png" src="../_images/98ed9d7400afdbbf246d62932acbf94887fc2ea809a896f5e68a614d4cef852f.png" />
+<img alt="../_images/b6162a87de919da74c3332c22b409207324b236bdd83c43150e1bb3fe117f2e2.png" src="../_images/b6162a87de919da74c3332c22b409207324b236bdd83c43150e1bb3fe117f2e2.png" />
+<img alt="../_images/b211e738527629eda70cf93a1ac6d847c65de140e4291893cb55824a31d418dc.png" src="../_images/b211e738527629eda70cf93a1ac6d847c65de140e4291893cb55824a31d418dc.png" />
+<img alt="../_images/110dd98b7ce5637e50724aff3c86549f6d10a64fd3f547091b5c76179943162e.png" src="../_images/110dd98b7ce5637e50724aff3c86549f6d10a64fd3f547091b5c76179943162e.png" />
+<img alt="../_images/82f89b2ab4252544aa8a240573617998bdcc21b367411c1a4a4d1198c6424736.png" src="../_images/82f89b2ab4252544aa8a240573617998bdcc21b367411c1a4a4d1198c6424736.png" />
+<img alt="../_images/c9dd6d1aeb7c4525c82814ab24610af24b55ca8825ffca2fc5a9cd688cfe41e0.png" src="../_images/c9dd6d1aeb7c4525c82814ab24610af24b55ca8825ffca2fc5a9cd688cfe41e0.png" />
+<img alt="../_images/af73f893c7cd6894c5a3351b3185d6ff082c9bd041fd2df3b1fd70c6f484e757.png" src="../_images/af73f893c7cd6894c5a3351b3185d6ff082c9bd041fd2df3b1fd70c6f484e757.png" />
+<img alt="../_images/350488626dda19a11793d087bcffeec4a38b499f2dbcec71309958b9a0c25a1d.png" src="../_images/350488626dda19a11793d087bcffeec4a38b499f2dbcec71309958b9a0c25a1d.png" />
+<img alt="../_images/6af2bd374123b2ebc803e6748a845bd791abffff89b02415cee61f359aef411f.png" src="../_images/6af2bd374123b2ebc803e6748a845bd791abffff89b02415cee61f359aef411f.png" />
+<img alt="../_images/fdaca0e51a258d75819406b84a579890ee862284356f8fc2a84ca3a78e9ece1f.png" src="../_images/fdaca0e51a258d75819406b84a579890ee862284356f8fc2a84ca3a78e9ece1f.png" />
+<img alt="../_images/a484980a5d18f950e929a04df949d8d7c47364c175cf9d6520ae0edafbb56ae2.png" src="../_images/a484980a5d18f950e929a04df949d8d7c47364c175cf9d6520ae0edafbb56ae2.png" />
+<img alt="../_images/f091d109294d4f95c4a58b0133b6fab2e7163b20164f2075422d44945fc9e50b.png" src="../_images/f091d109294d4f95c4a58b0133b6fab2e7163b20164f2075422d44945fc9e50b.png" />
+<img alt="../_images/1231dea71a6ca117da74d3894fd76d1499ae8aa804a7fc3012c1983165b07133.png" src="../_images/1231dea71a6ca117da74d3894fd76d1499ae8aa804a7fc3012c1983165b07133.png" />
+<img alt="../_images/30c8446ca944a99fb434e2e774b61c6d43ac5e043cda8b4c1b76c7d6ed205ea0.png" src="../_images/30c8446ca944a99fb434e2e774b61c6d43ac5e043cda8b4c1b76c7d6ed205ea0.png" />
+<img alt="../_images/f3fc69ba0bf789d27a90926861feb88023149907d952a2321f8e7de0d04f05bd.png" src="../_images/f3fc69ba0bf789d27a90926861feb88023149907d952a2321f8e7de0d04f05bd.png" />
+<img alt="../_images/84398e6c7993c6163ef874a6a604c93e62e25208bb06d9d1b7e5433862d38d26.png" src="../_images/84398e6c7993c6163ef874a6a604c93e62e25208bb06d9d1b7e5433862d38d26.png" />
+<img alt="../_images/5b479b678865bf7ed51423d4b7facacb985b874ce9cfcc9dd8a413cac9ef7afb.png" src="../_images/5b479b678865bf7ed51423d4b7facacb985b874ce9cfcc9dd8a413cac9ef7afb.png" />
+<img alt="../_images/563a2cee75c023b4b4ef8bad84de230d344900abbc003e8e850ea5f479f023a4.png" src="../_images/563a2cee75c023b4b4ef8bad84de230d344900abbc003e8e850ea5f479f023a4.png" />
+<img alt="../_images/37641ac959c138a783879c630ae0ee5f83c854185e9a90e21879d749c3a85c24.png" src="../_images/37641ac959c138a783879c630ae0ee5f83c854185e9a90e21879d749c3a85c24.png" />
+<img alt="../_images/20caa8c2b6ab51429cbb1e7860c724ed6def4b92c75c85beb53f4c6d5ce340b7.png" src="../_images/20caa8c2b6ab51429cbb1e7860c724ed6def4b92c75c85beb53f4c6d5ce340b7.png" />
+<img alt="../_images/ee55dd9cbb09e9c9030869ec021e87e7caee57b0e395df100202b0bc15a1cfbb.png" src="../_images/ee55dd9cbb09e9c9030869ec021e87e7caee57b0e395df100202b0bc15a1cfbb.png" />
+<img alt="../_images/5a937390e1338c205eaa04ae6981dc51791ac390aa6ecca434f6e7d519ea924d.png" src="../_images/5a937390e1338c205eaa04ae6981dc51791ac390aa6ecca434f6e7d519ea924d.png" />
+<img alt="../_images/d3b656c95c32e74bbd36f3ec031a157a614aa6da85f3dfed4d8aff2144dd511d.png" src="../_images/d3b656c95c32e74bbd36f3ec031a157a614aa6da85f3dfed4d8aff2144dd511d.png" />
+<img alt="../_images/3eacef7dd5f37c2cc969a1c0b9d9d72667b47dfa5685b402e35dc3fe5335b652.png" src="../_images/3eacef7dd5f37c2cc969a1c0b9d9d72667b47dfa5685b402e35dc3fe5335b652.png" />
+<img alt="../_images/0080f2d161ab0178dff6b44b9c878d9fc2a52bf2a6e19de156a82f0f537fdd95.png" src="../_images/0080f2d161ab0178dff6b44b9c878d9fc2a52bf2a6e19de156a82f0f537fdd95.png" />
+<img alt="../_images/1dcbc716ea2b0fcce213c6db888e87c9ff478fe9917ed4b6290fe66e623c746d.png" src="../_images/1dcbc716ea2b0fcce213c6db888e87c9ff478fe9917ed4b6290fe66e623c746d.png" />
+<img alt="../_images/fafa6ada6360ee36031528af16996c920417fc7a494e6367e100d30154fcaf32.png" src="../_images/fafa6ada6360ee36031528af16996c920417fc7a494e6367e100d30154fcaf32.png" />
+<img alt="../_images/b2fea95018cd6ae34e4a732b9dc4dcecf1a36d74c15157bfad201fbe9d1e975a.png" src="../_images/b2fea95018cd6ae34e4a732b9dc4dcecf1a36d74c15157bfad201fbe9d1e975a.png" />
+<img alt="../_images/382aceab81a536498d617b52f34ebfda80b445547b4d99eedd5d1f05bdb59906.png" src="../_images/382aceab81a536498d617b52f34ebfda80b445547b4d99eedd5d1f05bdb59906.png" />
+<img alt="../_images/c5d5afd06c019008953029c2684f515f5da5de1a65eca4deb28516137f59780c.png" src="../_images/c5d5afd06c019008953029c2684f515f5da5de1a65eca4deb28516137f59780c.png" />
+<img alt="../_images/7de76b3c3fcbe93e8e95d267e16b3602c57812dc61bf34ecab8cc29428dbd900.png" src="../_images/7de76b3c3fcbe93e8e95d267e16b3602c57812dc61bf34ecab8cc29428dbd900.png" />
+<img alt="../_images/3a84908160e19491162f2b8f02509d6222072c03354385d7b69e2c9527cfcd75.png" src="../_images/3a84908160e19491162f2b8f02509d6222072c03354385d7b69e2c9527cfcd75.png" />
+<img alt="../_images/8e164e900016eba72a378a4265f3beacd804213b93271fdea2b226aef4cddb80.png" src="../_images/8e164e900016eba72a378a4265f3beacd804213b93271fdea2b226aef4cddb80.png" />
+<img alt="../_images/1efe6e66670188bba026b7edecefce3e66f635953d3b736ce5e3b640b31e5ea0.png" src="../_images/1efe6e66670188bba026b7edecefce3e66f635953d3b736ce5e3b640b31e5ea0.png" />
+<img alt="../_images/0416f123d7f79f28b068521d10e8d0260afa7748f865309dffc9b668e2631685.png" src="../_images/0416f123d7f79f28b068521d10e8d0260afa7748f865309dffc9b668e2631685.png" />
+<img alt="../_images/41f2478c7f67d5055db7e289ed765270f362657f614dec5db7bcc98c17e49dde.png" src="../_images/41f2478c7f67d5055db7e289ed765270f362657f614dec5db7bcc98c17e49dde.png" />
+<img alt="../_images/57ca71143f0ed80ccc7885225e02b8fb52cd92c80cf6253e4c353f558212a9f0.png" src="../_images/57ca71143f0ed80ccc7885225e02b8fb52cd92c80cf6253e4c353f558212a9f0.png" />
+<img alt="../_images/ca01d029d19b7da0b2adedec75c8bdcf9bc8e916cdc7495e3a2e81641a19b25c.png" src="../_images/ca01d029d19b7da0b2adedec75c8bdcf9bc8e916cdc7495e3a2e81641a19b25c.png" />
+<img alt="../_images/b20a17f8a493d9f50b2f1e8736c4403e8cc40f9ad581685932830470364ab7c2.png" src="../_images/b20a17f8a493d9f50b2f1e8736c4403e8cc40f9ad581685932830470364ab7c2.png" />
+<img alt="../_images/72a4de4349908cdac6007330db2f6a2725665002e4517e4cd11d8f22fae43ecb.png" src="../_images/72a4de4349908cdac6007330db2f6a2725665002e4517e4cd11d8f22fae43ecb.png" />
+<img alt="../_images/1c558436881bdb3c39ced1be21c6b94225fc25a865aa3b856fab163bd533a3d5.png" src="../_images/1c558436881bdb3c39ced1be21c6b94225fc25a865aa3b856fab163bd533a3d5.png" />
+<img alt="../_images/55614e3dad021042659b3196cfcf667fb4aa5d31d8422ff84f241b9ca9829dd2.png" src="../_images/55614e3dad021042659b3196cfcf667fb4aa5d31d8422ff84f241b9ca9829dd2.png" />
+<img alt="../_images/a5964d9e0a4c805c5f5001034466da6d7a7b731ad3811ef071c5e3020d2c1cfb.png" src="../_images/a5964d9e0a4c805c5f5001034466da6d7a7b731ad3811ef071c5e3020d2c1cfb.png" />
+<img alt="../_images/ef5dddfcd6c07fc15be15be4589051623396d8a9aa98030b8a3f575317221a02.png" src="../_images/ef5dddfcd6c07fc15be15be4589051623396d8a9aa98030b8a3f575317221a02.png" />
+</div>
+</div>
+<p>Plot a specific channel together</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_vac</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">num_stp</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num_y</span><span class="p">,</span> <span class="n">num_x</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">num_vac</span><span class="p">,</span> <span class="n">num_stp</span><span class="p">),</span>
+                         <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xticks&#39;</span><span class="p">:[],</span> <span class="s1">&#39;yticks&#39;</span><span class="p">:[]},</span>
+                         <span class="n">gridspec_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.02</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">count_imgs</span><span class="p">)):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">amplitude</span><span class="p">[</span><span class="n">i</span><span class="p">,]</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span> <span class="c1"># We are plotting amplitude now, you can change the channel to phase, frequency,etc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/260c71135b97ce3025f02a44a01f4cab5e22ca0e9684941ce90cd5b9b07c15ef.png" src="../_images/260c71135b97ce3025f02a44a01f4cab5e22ca0e9684941ce90cd5b9b07c15ef.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_vac</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">num_stp</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num_y</span><span class="p">,</span> <span class="n">num_x</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">num_vac</span><span class="p">,</span> <span class="n">num_stp</span><span class="p">),</span>
+                         <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;xticks&#39;</span><span class="p">:[],</span> <span class="s1">&#39;yticks&#39;</span><span class="p">:[]},</span>
+                         <span class="n">gridspec_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">wspace</span><span class="o">=</span><span class="mf">0.02</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">count_imgs</span><span class="p">)):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">phase</span><span class="p">[</span><span class="n">i</span><span class="p">,],</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/208594e302f80f242ca199dab38eec39368ec3073fe61315f24ea3822c8aa08c.png" src="../_images/208594e302f80f242ca199dab38eec39368ec3073fe61315f24ea3822c8aa08c.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_5_automated_experimentation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ht_domain_writing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Domain Writing Workflow</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../chapter_6_autonomous_experimentation/ae_intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">About Autonomous Experiment</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment">Experiment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-bepyae-exe-and-set-vi">Start BEPyAE.exe and set VI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-igor-ar18">Initialize Igor AR18</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-tip-parameters">Set tip parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-io">Set IO</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-be-pulse-parameters">Set BE pulse parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#be-line-scan-to-check-be-parameters">BE Line scan to check BE parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-to-expeirment-set-a-directory-to-save-data">Prior to expeirment, set a directory to save data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-starts">Experiment starts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-establish-ac-amplitude-and-setpoint-parameters">Step 1. Establish AC Amplitude and Setpoint Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-perform-bepfm-to-image-the-domain-wall-with-various-ac-and-setpoint">Step 2. Perform BEPFM to image the domain wall with various AC and setpoint</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#post-experiment-data-analysis">Post Experiment Data Analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-directory-and-root-name-of-your-dataset">Set the directory and root name of your dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-all-data">Load all data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-vac-and-setpoint">Load Vac and Setpoint</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-data">Plot data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By AEcroscopy Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

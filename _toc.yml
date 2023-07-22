@@ -10,27 +10,27 @@ parts:
     - file: chapter_getstart/getstart_intro
   - caption: Introduction
     chapters:
-    - file: chapter_1_introduction/aecroscopy_command_intro
-  - caption: Automated Experimentation
-    chapters:
-    - file: chapter_2_automated_experimentation/ht_intro
-    - file: chapter_2_automated_experimentation/ht_domain_writing
-    - file: chapter_2_automated_experimentation/ht_wall_thickness
-  - caption: Autonomous Experimentation
-    chapters:
-    - file: chapter_3_autonomous_experimentation/ae_intro
-    - file: chapter_3_autonomous_experimentation/ml_dkl
-    - file: chapter_3_autonomous_experimentation/ml_hypoal
-    - file: chapter_3_autonomous_experimentation/ml_resnet
+    - file: chapter_1_experiment/aecroscopy_command_intro
   - caption: Data Processing
     chapters:
-    - file: chapter_4_data_processing/dp_intro
+    - file: chapter_2_data_processing/dp_intro
   - caption: Edge Computing
     chapters:
-    - file: chapter_5_edge_computing/ec_intro
+    - file: chapter_3_edge_computing/ec_intro
   - caption: LLM in AEcroscopy
     chapters:
-    - file: chapter_6_llm_in_aecroscopy/llm_intro
+    - file: chapter_4_llm_in_aecroscopy/llm_intro
+  - caption: Automated Experimentation
+    chapters:
+    - file: chapter_5_automated_experimentation/ht_intro
+    - file: chapter_5_automated_experimentation/ht_domain_writing
+    - file: chapter_5_automated_experimentation/ht_wall_thickness
+  - caption: Autonomous Experimentation
+    chapters:
+    - file: chapter_6_autonomous_experimentation/ae_intro
+    - file: chapter_6_autonomous_experimentation/ml_dkl
+    - file: chapter_6_autonomous_experimentation/ml_hypoal
+    - file: chapter_6_autonomous_experimentation/ml_resnet
   - caption: User Contribution
     chapters:
     - file: chapter_7_user_contribution/uc_intro

@@ -1,0 +1,1091 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Deep Kernel Learning driven piezoresponse spectroscopy &#8212; AEcroscopy</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/tabs.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_6_autonomous_experimentation/ml_dkl';</script>
+    <link rel="canonical" href="https://github.com/yongtaoliu/chapter_6_autonomous_experimentation/ml_dkl.html" />
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Hypothesis Leanring Domain Growth" href="ml_hypoal.html" />
+    <link rel="prev" title="About Autonomous Experiment" href="ae_intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../welcome_intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../welcome_intro.html">
+                    Welcome to AEcroscopy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_getstart/getstart_intro.html">Get Started</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1_experiment/aecroscopy_command_intro.html">Experiments</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_data_processing/dp_intro.html">About Data Process</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Edge Computing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3_edge_computing/ec_intro.html">About Edge Computing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">LLM in AEcroscopy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4_llm_in_aecroscopy/llm_intro.html">About Using LLM in AEcroscopy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Automated Experimentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5_automated_experimentation/ht_intro.html">About Automated Experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5_automated_experimentation/ht_domain_writing.html">Domain Writing Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5_automated_experimentation/ht_wall_thickness.html">Wall Thickness Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Autonomous Experimentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ae_intro.html">About Autonomous Experiment</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Deep Kernel Learning driven piezoresponse spectroscopy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ml_hypoal.html">Hypothesis Leanring Domain Growth</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ml_resnet.html">Ensemble ResNet for in-situ Spectroscopy</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User Contribution</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_7_user_contribution/uc_intro.html">About User Contribution</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Publications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_8_publications/p_intro.html">About Publications</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/yongtaoliu/yongtaoliu.github.io" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_6_autonomous_experimentation/ml_dkl.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Deep Kernel Learning driven piezoresponse spectroscopy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Deep Kernel Learning driven piezoresponse spectroscopy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import">Install and Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-bepyae-exe-and-set-vi">Start BEPyAE.exe and set VI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-igor-ar18">Initialize Igor AR18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-tip-parameters">Set tip parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-io">Set IO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-be-pulse-parameters">Set BE pulse parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#be-line-scan-to-test-be-parameters">BE Line scan to test BE parameters</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-starts">Experiment Starts</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-to-expeirment-set-a-directory-to-save-data">Prior to expeirment, set a directory to save data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-perform-a-bepfm-measurement">Step 1. Perform a BEPFM measurement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-prepare-structure-patch">Step 2. Prepare structure patch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-send-struc-img-npy-to-gpu-server-via-sftp">Step 3. Send struc_img.npy to GPU server via sftp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-install-import-and-define-help-functions">Step 4. Install, import, and define help functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-prepare-image-patches">Step 5. Prepare image patches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-do-first-beps-at-random-location">Step 6. Do first BEPS at random location</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-request-connection-to-gpu-server-and-start-dkl-exploration">Step 7. Request connection to GPU server and start DKL exploration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-connect-to-local-pc-and-start-dkl-exploration">Step 8. Connect to local PC and start DKL exploration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-do-a-bepfm-at-the-whole-experiment-area">Step 8. Do a BEPFM at the whole experiment area</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="deep-kernel-learning-driven-piezoresponse-spectroscopy">
+<h1>Deep Kernel Learning driven piezoresponse spectroscopy<a class="headerlink" href="#deep-kernel-learning-driven-piezoresponse-spectroscopy" title="Permalink to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(_{Yongtao}\)</span> <span class="math notranslate nohighlight">\(_{Liu,}\)</span> <span class="math notranslate nohighlight">\(_{liuy3&#64;ornl.gov}\)</span></p>
+<p><span class="math notranslate nohighlight">\(_{July}\)</span> <span class="math notranslate nohighlight">\(_{2023}\)</span></p>
+<section id="install-and-import">
+<h2>Install and Import<a class="headerlink" href="#install-and-import" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">win32com.client</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">h5py</span>
+<span class="kn">import</span> <span class="nn">sidpy</span>
+<span class="kn">import</span> <span class="nn">pyNSID</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">find_peaks</span>
+<span class="kn">import</span> <span class="nn">h5py</span>
+<span class="kn">from</span> <span class="nn">mlsocket</span> <span class="kn">import</span> <span class="n">MLSocket</span>
+
+<span class="c1"># import acquition.py</span>
+<span class="kn">from</span> <span class="nn">Acquisition_v0_5</span> <span class="kn">import</span> <span class="n">Acquisition</span>   <span class="c1"># include the Acquistion_v0.py in the same directory</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="start-bepyae-exe-and-set-vi">
+<h2>Start BEPyAE.exe and set VI<a class="headerlink" href="#start-bepyae-exe-and-set-vi" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Start BEPyAE.ext</p></li>
+<li><p>Set VI of BEPyAE; if this version includes PyScanner, also set VIs for PyScanner</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span> <span class="o">=</span> <span class="n">Acquisition</span><span class="p">(</span><span class="n">exe_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\BEPyAE 060123 01\BEPyAE.exe&quot;</span><span class="p">)</span>   <span class="c1"># exe_path is the directory of BEPyAE; </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initialize-igor-ar18">
+<h2>Initialize Igor AR18<a class="headerlink" href="#initialize-igor-ar18" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Set offline development</p></li>
+<li><p>Build a connection between BEPyAE and AR18</p></li>
+<li><p>Get parameters in AR18</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span><span class="o">.</span><span class="n">init_BEPyAE</span><span class="p">(</span><span class="n">offline_development</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># set offline_development=True if doing offline development</span>
+                                                <span class="c1"># executing this will also initlize AR18</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-tip-parameters">
+<h2>Set tip parameters<a class="headerlink" href="#set-tip-parameters" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>set setpoint, tip locations</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span><span class="o">.</span><span class="n">tip_control</span><span class="p">(</span><span class="n">tip_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;set_point_V_00&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;next_x_pos_00&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;next_y_pos_01&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">},</span>
+                   <span class="n">do_move_tip</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                   <span class="n">do_set_setpoint</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># Executing this code will set setpoint to 1 V, </span>
+                                           <span class="c1"># and move tip to location [0.5, 0.5]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Setpoint is:  1.0
+Tip parameters are:  (-0.5, 0.5, 0.5)
+Please reset if some parameters are incorrect
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-io">
+<h2>Set IO<a class="headerlink" href="#set-io" title="Permalink to this heading">#</a></h2>
+<p>This defines IO parameters, such as AFM platform: AR18, amplifiers, channel data types, etc</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">newexp</span><span class="o">.</span><span class="n">define_io_cluster</span><span class="p">(</span><span class="n">IO_cluster_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;analog_output_amplifier_06&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+                                                  <span class="s2">&quot;channel_01_type_07&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+                                                  <span class="s2">&quot;channel_02_type_08&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;channel_03_type_09&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IO control parameters are:  (&#39;0 Cypher AR18&#39;, &#39;6124&#39;, 4000000.0, 10.0, 10.0, &#39;AC and DC on AO0&#39;, 10.0, &#39;topography&#39;, &#39;current&#39;, &#39;aux&#39;, &#39;external&#39;)
+Please reset if some parameters are incorrect
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-be-pulse-parameters">
+<h2>Set BE pulse parameters<a class="headerlink" href="#set-be-pulse-parameters" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set BE parameters</span>
+<span class="n">newexp</span><span class="o">.</span><span class="n">define_be_parms</span><span class="p">(</span><span class="n">be_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;center_frequency_Hz_00&quot;</span><span class="p">:</span> <span class="mi">335</span><span class="p">,</span> <span class="s2">&quot;band_width_Hz_01&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+                                       <span class="s2">&quot;amplitude_V_02&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;phase_variation_03&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                                       <span class="s2">&quot;repeats_04&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;req_pulse_duration_s_05&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+                                       <span class="s2">&quot;auto_smooth_ring_06&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> 
+                      <span class="n">do_create_be_waveform</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BE parameters are:  (335000.0, 100000.0, 1.0, 1.0, 4, 0.004, 1, 3352.2952763920002, 0.12159459061880915)
+Please reset if some parameters are incorrect
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(335000.0,
+ 100000.0,
+ 1.0,
+ 1.0,
+ 4,
+ 0.004,
+ 1,
+ 3352.2952763920002,
+ 0.12159459061880915)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="be-line-scan-to-test-be-parameters">
+<h2>BE Line scan to test BE parameters<a class="headerlink" href="#be-line-scan-to-test-be-parameters" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>This is a single BE line scan</p></li>
+<li><p>This returns 5 datasets: quick_fitting, complex spectra, and 3 channels</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do a single line scan</span>
+<span class="n">qk_fit</span><span class="p">,</span> <span class="n">com_spec</span><span class="p">,</span> <span class="n">chn1</span><span class="p">,</span> <span class="n">chn2</span><span class="p">,</span> <span class="n">chn3</span> <span class="o">=</span> <span class="n">newexp</span><span class="o">.</span><span class="n">do_line_scan</span><span class="p">(</span><span class="n">line_scan_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;num_BE_pulses_01&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+                                                                                 <span class="s2">&quot;start_x_pos_00&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;start_y_pos_01&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                                                                                 <span class="s2">&quot;stop_x_pos_02&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;stop_y_pos_03&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+                                                         <span class="n">upload_to_daq</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">do_line_scan</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>voltage offset and number of BE pulse are:  (0.0, 32)
+line scan start and end positions:  (-0.5, 0.0, 0.5, 0.0)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="experiment-starts">
+<h1>Experiment Starts<a class="headerlink" href="#experiment-starts" title="Permalink to this heading">#</a></h1>
+<div class="admonition-run-on-local-pc admonition">
+<p class="admonition-title">Run on local PC</p>
+<p>Run below code on microscope computer.</p>
+</div>
+<section id="prior-to-expeirment-set-a-directory-to-save-data">
+<h2>Prior to expeirment, set a directory to save data<a class="headerlink" href="#prior-to-expeirment-set-a-directory-to-save-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;/content/save directory/&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_25324</span><span class="o">/</span><span class="mf">3425510952.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&quot;/content/save directory/&quot;</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [WinError 3] The system cannot find the path specified: &#39;/content/save directory/&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-1-perform-a-bepfm-measurement">
+<h2>Step 1. Perform a BEPFM measurement<a class="headerlink" href="#step-1-perform-a-bepfm-measurement" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dset_pfm</span><span class="p">,</span> <span class="n">dset_chns</span><span class="p">,</span> <span class="n">dset_cs</span> <span class="o">=</span> <span class="n">newexp</span><span class="o">.</span><span class="n">raster_scan</span><span class="p">(</span><span class="n">raster_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;scan_pixel&quot;</span><span class="p">:</span> <span class="mi">256</span><span class="p">,</span> <span class="s2">&quot;scan_x_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
+                                                                       <span class="s2">&quot;scan_y_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="s2">&quot;scan_x_stop&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+                                                                       <span class="s2">&quot;scan_y_stop&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span> <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;BEPFM&quot;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">,</span> <span class="n">ax5</span><span class="p">,</span> <span class="n">ax6</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">ax5</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_chns</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:])</span>
+<span class="n">ax6</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_chns</span><span class="p">[</span><span class="mi">1</span><span class="p">,:,:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20 locations are ready for experiments
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-prepare-structure-patch">
+<h2>Step 2. Prepare structure patch<a class="headerlink" href="#step-2-prepare-structure-patch" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># normalize structure data</span>
+<span class="n">norm_</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="n">struc_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>          <span class="c1"># set structure image</span>
+<span class="n">struc_img</span> <span class="o">=</span> <span class="n">norm_</span><span class="p">(</span><span class="n">struc_img</span><span class="p">)</span>   <span class="c1"># normalize</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;structure_image.npy&#39;</span><span class="p">,</span> <span class="n">struc_img</span><span class="p">)</span>  <span class="c1"># send this to GPU server later</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Structure image shape:&quot;</span><span class="p">,</span> <span class="n">struc_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prepare structure image patches</span>
+<span class="n">coordinates</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_coord_grid</span><span class="p">(</span><span class="n">struc_img</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># patch size</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">pix</span> <span class="o">=</span> <span class="n">struc_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">window_size</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># extract subimage for each point on a grid</span>
+<span class="n">features_all</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">extract_subimages</span><span class="p">(</span><span class="n">struc_img</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">,</span> <span class="n">window_size</span><span class="p">)</span>
+<span class="n">features_all</span> <span class="o">=</span> <span class="n">features_all</span><span class="p">[:,:,:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># indices = coords.reshape(pix,pix,2)</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="n">coords</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Patch shape:&quot;</span><span class="p">,</span> <span class="n">features_all</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indices list shape: &quot;</span><span class="p">,</span> <span class="n">indices</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># plot structure image and an example patch</span>
+<span class="n">_</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">struc_img</span><span class="p">,</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">indices</span><span class="o">.</span><span class="n">reshase</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">indices</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">features_all</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">origin</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-send-struc-img-npy-to-gpu-server-via-sftp">
+<h2>Step 3. Send struc_img.npy to GPU server via sftp<a class="headerlink" href="#step-3-send-struc-img-npy-to-gpu-server-via-sftp" title="Permalink to this heading">#</a></h2>
+<div class="admonition-run-on-gpu-server admonition">
+<p class="admonition-title">Run on GPU server</p>
+<p>Run below code on GPU server.</p>
+</div>
+</section>
+<section id="step-4-install-import-and-define-help-functions">
+<h2>Step 4. Install, import, and define help functions<a class="headerlink" href="#step-4-install-import-and-define-help-functions" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Please</span> <span class="n">run</span> <span class="n">this</span> <span class="n">code</span> <span class="o">@</span> <span class="n">GPU</span> <span class="n">server</span>
+<span class="o">-------------------------------------------------------------------</span>
+
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">gpytorch</span>
+<span class="kn">import</span> <span class="nn">botorch</span>
+<span class="kn">import</span> <span class="nn">atomai</span> <span class="k">as</span> <span class="nn">aoi</span>
+<span class="kn">from</span> <span class="nn">atomai</span> <span class="kn">import</span> <span class="n">utils</span>
+<span class="c1"># from scipy.signal import find_peaks</span>
+<span class="c1"># from sklearn.model_selection import train_test_split</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Type</span>
+<span class="kn">from</span> <span class="nn">mlsocket</span> <span class="kn">import</span> <span class="n">MLSocket</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Please</span> <span class="n">run</span> <span class="n">this</span> <span class="n">code</span> <span class="o">@</span> <span class="n">GPU</span> <span class="n">server</span>
+<span class="o">-------------------------------------------------------------------</span>
+
+<span class="c1">############---DKL Acquistion function---###########</span>
+<span class="k">def</span> <span class="nf">EI</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">aoi</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">dklGPR</span><span class="p">],</span> <span class="n">X</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+       <span class="n">best_f</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">xi</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+       <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Expected Improvement</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span>
+    <span class="n">types</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+    <span class="n">tor</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">a</span><span class="p">:</span> <span class="n">tt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">types</span><span class="p">)</span> <span class="k">else</span> <span class="n">a</span>    
+    <span class="n">device</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">device</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">dtype</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">best_f</span><span class="p">,</span> <span class="n">xi</span> <span class="o">=</span> <span class="n">tor</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">tor</span><span class="p">(</span><span class="n">best_f</span><span class="p">),</span> <span class="n">tor</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+    <span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">mean</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="n">tor</span><span class="p">(</span><span class="n">mean</span><span class="p">),</span> <span class="n">tor</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>  <span class="c1"># have to translate them back to torch tensors</span>
+    <span class="n">sigma</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">sqrt</span><span class="p">()</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean</span> <span class="o">-</span> <span class="n">best_f</span><span class="o">.</span><span class="n">expand_as</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span> <span class="o">-</span> <span class="n">xi</span><span class="o">.</span><span class="n">expand_as</span><span class="p">(</span><span class="n">mean</span><span class="p">))</span> <span class="o">/</span> <span class="n">sigma</span>
+    <span class="n">normal</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">distributions</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">u</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+    <span class="n">ucdf</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">updf</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">normal</span><span class="o">.</span><span class="n">log_prob</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">*</span> <span class="p">(</span><span class="n">updf</span> <span class="o">+</span> <span class="n">u</span> <span class="o">*</span> <span class="n">ucdf</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">obj</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-5-prepare-image-patches">
+<h2>Step 5. Prepare image patches<a class="headerlink" href="#step-5-prepare-image-patches" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Please</span> <span class="n">run</span> <span class="n">this</span> <span class="n">code</span> <span class="o">@</span> <span class="n">GPU</span> <span class="n">server</span>
+<span class="o">-------------------------------------------------------------------</span>
+
+<span class="c1"># prepare structure image patches</span>
+<span class="n">coordinates</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">get_coord_grid</span><span class="p">(</span><span class="n">struc_img</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># patch size</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">pix</span> <span class="o">=</span> <span class="n">struc_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">window_size</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># extract subimage for each point on a grid</span>
+<span class="n">features_all</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">extract_subimages</span><span class="p">(</span><span class="n">struc_img</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">,</span> <span class="n">window_size</span><span class="p">)</span>
+<span class="n">features_all</span> <span class="o">=</span> <span class="n">features_all</span><span class="p">[:,:,:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># indices = coords.reshape(pix,pix,2)</span>
+<span class="n">indices</span> <span class="o">=</span> <span class="n">coords</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Patch shape:&quot;</span><span class="p">,</span> <span class="n">features_all</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indices list shape: &quot;</span><span class="p">,</span> <span class="n">indices</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-run-on-local-pc admonition">
+<p class="admonition-title">Run on local PC</p>
+<p>Run below code on microscope computer.</p>
+</div>
+</section>
+<section id="step-6-do-first-beps-at-random-location">
+<h2>Step 6. Do first BEPS at random location<a class="headerlink" href="#step-6-do-first-beps-at-random-location" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first BEPS measurement is performed at a random location</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">))</span> <span class="c1"># random location</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;First location index: &quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+
+<span class="c1"># Do beps</span>
+<span class="n">do_beps</span><span class="p">(</span><span class="n">indices</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;measurement done&quot;</span><span class="p">)</span>
+    
+<span class="c1"># Read data and calculate scalarizer</span>
+<span class="n">new_spec</span> <span class="o">=</span> 
+<span class="n">new_scalarizer</span> <span class="o">=</span> 
+
+<span class="c1"># Define a list to save scalarizer</span>
+<span class="n">y_train_raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([])</span>
+<span class="n">y_train_raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_train_raw</span><span class="p">,</span> <span class="n">new_scalarizer</span><span class="p">)</span>    
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Now, the y_train_raw is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_train_raw</span><span class="p">))</span>
+        
+<span class="c1"># Normalize y_train</span>
+<span class="n">y_train_normalize</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="mf">0.5</span><span class="p">])</span> <span class="c1"># Since there is just a single value, we set it as 0.5 </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-7-request-connection-to-gpu-server-and-start-dkl-exploration">
+<h2>Step 7. Request connection to GPU server and start DKL exploration<a class="headerlink" href="#step-7-request-connection-to-gpu-server-and-start-dkl-exploration" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define exploration step</span>
+<span class="n">exploration_step</span> <span class="o">=</span> <span class="mi">200</span>
+
+<span class="n">HOST</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">9000</span>
+<span class="k">with</span> <span class="n">MLSocket</span><span class="p">()</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="n">exploration_step</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;##########----step </span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">----##########&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">exploration_step</span><span class="p">))</span>
+        <span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        
+        <span class="c1"># Send the measured data to GPU server</span>
+        <span class="n">new_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">y_train_normalize</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+        <span class="c1"># Listen next location</span>
+        <span class="n">next_location</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">920</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;predicted point ready&quot;</span><span class="p">,</span> <span class="n">next_location</span><span class="p">)</span>
+        
+        <span class="c1">###### Do BEPS Measurement at predicted location ########</span>
+        <span class="n">newexp</span><span class="o">.</span><span class="n">do_beps</span><span class="p">(</span><span class="n">next_location</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;measurement done&quot;</span><span class="p">)</span>
+    
+        <span class="c1"># Read data and calculate scalarizer</span>
+        <span class="n">new_spec</span> <span class="o">=</span> 
+        <span class="n">new_scalarizer</span> <span class="o">=</span> 
+    
+        <span class="n">y_train_raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_train_raw</span><span class="p">,</span> <span class="n">new_scalarizer</span><span class="p">)</span>    
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Now, the y_train_raw is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_train_raw</span><span class="p">))</span>
+        
+        <span class="c1"># Normalize y_train</span>
+        <span class="n">y_train_normalize</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_train_raw</span> <span class="o">-</span> <span class="n">y_train_raw</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="n">y_train_raw</span><span class="o">.</span><span class="n">ptp</span><span class="p">()</span>
+        
+        <span class="c1"># Plot figure</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">struc_img</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">next_loc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">next_loc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time in this step: &quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">starttime</span><span class="p">)</span>
+
+    <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-run-on-gpu-server admonition">
+<p class="admonition-title">Run on GPU server</p>
+<p>Run below code on GPU server.</p>
+</div>
+</section>
+<section id="step-8-connect-to-local-pc-and-start-dkl-exploration">
+<h2>Step 8. Connect to local PC and start DKL exploration<a class="headerlink" href="#step-8-connect-to-local-pc-and-start-dkl-exploration" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Please</span> <span class="n">run</span> <span class="n">this</span> <span class="n">code</span> <span class="o">@</span> <span class="n">GPU</span> <span class="n">server</span>
+<span class="o">-------------------------------------------------------------------</span>
+
+<span class="n">data_dim</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">exploration_step</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+<span class="n">HOST</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">3446</span>
+
+<span class="k">with</span> <span class="n">MLSocket</span><span class="p">()</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bounding......</span><span class="se">\n</span><span class="s2">please bound the other end&quot;</span><span class="p">)</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">()</span>
+    <span class="n">conn</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">conn</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;DKL starts&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">exploration_steps</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;##########----step </span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">----##########&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">step</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">exploration_steps</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">))</span>   <span class="c1"># may need to manually added the random index here</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First index: &quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+
+                <span class="c1"># Update train and test data</span>
+                <span class="n">X_train</span> <span class="p">[</span><span class="mi">0</span><span class="p">,]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">idx</span><span class="p">,]</span>
+                <span class="n">X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">indices_train</span><span class="p">[</span><span class="mi">0</span><span class="p">,]</span> <span class="o">=</span> <span class="n">indices_test</span><span class="p">[</span><span class="n">idx</span><span class="p">,]</span>
+                <span class="n">indices_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">indices_test</span><span class="p">,</span> <span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                
+                <span class="c1"># Listen to client for measurement result</span>
+                <span class="n">measured_point</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">920</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received new point data&quot;</span><span class="p">)</span>
+                <span class="c1">#update training data</span>
+                <span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">measured_point</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1">#listen to client for measurement result</span>
+                <span class="n">measured_point</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">920</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;received new point data&quot;</span><span class="p">)</span>
+                <span class="c1">#update training data</span>
+                <span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">measured_point</span><span class="p">)</span>
+
+                <span class="n">X_med</span><span class="p">[</span><span class="mi">0</span><span class="p">,]</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="n">next_point_idx</span><span class="p">,]</span>
+                <span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_med</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">next_point_idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">indices_med</span><span class="p">[</span><span class="mi">0</span><span class="p">,]</span> <span class="o">=</span> <span class="n">indices_test</span><span class="p">[</span><span class="n">next_point_idx</span><span class="p">]</span>
+                <span class="n">indices_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">indices_train</span><span class="p">,</span> <span class="n">indices_med</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">indices_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">indices_test</span><span class="p">,</span> <span class="n">next_point_idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="n">dklgp</span> <span class="o">=</span> <span class="n">aoi</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">dklGPR</span><span class="p">(</span><span class="n">data_dim</span><span class="p">,</span> <span class="n">embedim</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="s2">&quot;single&quot;</span><span class="p">)</span>
+            <span class="n">dklgp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">training_cycles</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+            <span class="c1"># Compute acquisition function</span>
+            <span class="c1"># best_f = torch.tensor(dklgp.predict(X_train)[0].max(), device=dklgp.device)</span>
+            <span class="c1"># obj_mean = EI(dklgp, X_test, best_f, xi, batch_size = 2000)</span>
+            <span class="c1"># Select next point to &quot;measure&quot;</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">var_</span> <span class="o">=</span> <span class="n">dklgp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">batch_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+            <span class="n">next_point_idx</span> <span class="o">=</span> <span class="n">var_</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
+            <span class="n">next_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">indices_test</span><span class="p">[</span><span class="n">next_point_idx</span><span class="p">])</span>
+            <span class="c1">#send next point to client</span>
+            <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">next_points</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Send next point index and next point: &quot;</span><span class="p">,</span> <span class="n">next_point_idx</span><span class="p">,</span> <span class="n">next_points</span><span class="p">)</span>
+
+            <span class="c1">#save step record</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">savedir</span><span class="p">,</span> <span class="s2">&quot;record</span><span class="si">{}</span><span class="s2">.npz&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">step</span><span class="p">)),</span> <span class="n">x_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">y_train</span><span class="p">,</span> 
+            <span class="n">indice_train</span> <span class="o">=</span> <span class="n">indices_train</span><span class="p">,</span> <span class="n">indice_test</span><span class="o">=</span><span class="n">indices_test</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="n">var_</span><span class="p">,</span> <span class="n">nextpoint</span><span class="o">=</span><span class="n">next_points</span><span class="p">)</span>
+            <span class="c1"># np.savez((&quot;/exp_record/record{}.npz&quot;.format(step)), indicestest=indices_test, </span>
+            <span class="c1"># objmean=obj_mean, nextpoint=next_points)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-run-on-local-pc admonition">
+<p class="admonition-title">Run on local PC</p>
+<p>Run below code on microscope computer.</p>
+</div>
+</section>
+<section id="step-8-do-a-bepfm-at-the-whole-experiment-area">
+<h2>Step 8. Do a BEPFM at the whole experiment area<a class="headerlink" href="#step-8-do-a-bepfm-at-the-whole-experiment-area" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dset_pfm</span><span class="p">,</span> <span class="n">dset_chns</span><span class="p">,</span> <span class="n">dset_cs</span> <span class="o">=</span> <span class="n">newexp</span><span class="o">.</span><span class="n">raster_scan</span><span class="p">(</span><span class="n">raster_parms_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;scan_pixel&quot;</span><span class="p">:</span> <span class="mi">256</span><span class="p">,</span> <span class="s2">&quot;scan_x_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>
+                                                                       <span class="s2">&quot;scan_y_start&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="s2">&quot;scan_x_stop&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+                                                                       <span class="s2">&quot;scan_y_stop&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">},</span> <span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;pfm_whole&quot;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">,</span> <span class="n">ax5</span><span class="p">,</span> <span class="n">ax6</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_pfm</span><span class="p">[:,:,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">ax5</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_chns</span><span class="p">[</span><span class="mi">0</span><span class="p">,:,:])</span>
+<span class="n">ax6</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">dset_chns</span><span class="p">[</span><span class="mi">1</span><span class="p">,:,:])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_6_autonomous_experimentation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ae_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">About Autonomous Experiment</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ml_hypoal.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hypothesis Leanring Domain Growth</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Deep Kernel Learning driven piezoresponse spectroscopy</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-and-import">Install and Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-bepyae-exe-and-set-vi">Start BEPyAE.exe and set VI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-igor-ar18">Initialize Igor AR18</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-tip-parameters">Set tip parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-io">Set IO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-be-pulse-parameters">Set BE pulse parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#be-line-scan-to-test-be-parameters">BE Line scan to test BE parameters</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-starts">Experiment Starts</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-to-expeirment-set-a-directory-to-save-data">Prior to expeirment, set a directory to save data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-perform-a-bepfm-measurement">Step 1. Perform a BEPFM measurement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-prepare-structure-patch">Step 2. Prepare structure patch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-send-struc-img-npy-to-gpu-server-via-sftp">Step 3. Send struc_img.npy to GPU server via sftp</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-install-import-and-define-help-functions">Step 4. Install, import, and define help functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-prepare-image-patches">Step 5. Prepare image patches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-6-do-first-beps-at-random-location">Step 6. Do first BEPS at random location</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-7-request-connection-to-gpu-server-and-start-dkl-exploration">Step 7. Request connection to GPU server and start DKL exploration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-connect-to-local-pc-and-start-dkl-exploration">Step 8. Connect to local PC and start DKL exploration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-8-do-a-bepfm-at-the-whole-experiment-area">Step 8. Do a BEPFM at the whole experiment area</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By AEcroscopy Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
