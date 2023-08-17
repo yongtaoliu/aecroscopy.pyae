@@ -36,4 +36,4 @@ parts:
     - file: chapter_7_user_contribution/uc_intro
   - caption: Publications
     chapters:
-    - file: chapter_8_publications/p_intro
+    - file: chapter_8_publications/pubs

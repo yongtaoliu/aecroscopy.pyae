@@ -44,7 +44,7 @@ class Acquisition():
         if pyscanner_vi != None:
             self.VIs = self.labview.getvireference(exe_path + pyscanner_vi) 
 
-    def init_BEPyAE(self, offline_development = False):
+    def init_BEPyAE(self, offline_development = False, tools_access = [False, False, True, True]):
         """
         Initializes the connection between BEPyAE and Asylum Cypher AR.
 
@@ -52,9 +52,13 @@ class Acquisition():
             offline_development (bool): Set to True for offline program development,
                                         False for microscope measurement.
         """
-        # Set offline development mode
+        if offline_development == True:
+            tool_access = [False, False, False, False]
+        elif offline_development == False:
+            tool_access = tools_access
+        # Set tools access
         self.VI.setcontrolvalue('offline_development_control_cluster', 
-                           (offline_development,offline_development,offline_development,offline_development))
+                                (tool_access[0], tool_access[1], tool_access[2], tool_access[3]))
         
         # Initialize the connection between BEPyAE and Asylum Cypher AR 
         self.VI.setcontrolvalue('initialize_AR18_control_cluster', (True,))
