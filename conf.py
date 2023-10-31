@@ -5,7 +5,7 @@
 ###############################################################################
 author = 'Yongtao Liu'
 comments_config = {'hypothesis': False, 'utterances': False}
-copyright = '2022'
+copyright = '2023'
 exclude_patterns = ['**.ipynb_checkpoints', '.DS_Store', 'Thumbs.db', '_build']
 extensions = ['sphinx_togglebutton', 'sphinx_copybutton', 'myst_nb', 'jupyter_book', 'sphinx_thebe', 'sphinx_comments', 'sphinx_external_toc', 'sphinx.ext.intersphinx', 'sphinx_design', 'sphinx_book_theme', 'sphinx_inline_tabs', 'sphinx_jupyterbook_latex']
 external_toc_exclude_missing = False
@@ -17,7 +17,7 @@ html_logo = 'LOGO.png'
 html_sourcelink_suffix = ''
 html_theme = 'sphinx_book_theme'
 html_theme_options = {'search_bar_text': 'Search this book...', 'launch_buttons': {'notebook_interface': 'classic', 'binderhub_url': '', 'jupyterhub_url': '', 'thebe': False, 'colab_url': ''}, 'path_to_docs': '', 'repository_url': 'https://github.com/yongtaoliu/yongtaoliu.github.io', 'repository_branch': 'master', 'extra_footer': '', 'home_page_in_toc': True, 'announcement': '', 'analytics': {'google_analytics_id': ''}, 'use_repository_button': True, 'use_edit_page_button': False, 'use_issues_button': False}
-html_title = 'AEcroscopy'
+html_title = 'AEcroscoPy'
 language = 'en'
 latex_engine = 'pdflatex'
 mathjax_path = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'

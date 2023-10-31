@@ -7,7 +7,7 @@ parts:
   #   - file: chapter_welcome/welcome_intro
   - caption: Get Started
     chapters:
-    - file: chapter_getstart/getstart_intro
+    - file: chapter_getstart/getstart_intro_nopublish
   - caption: Experiment
     chapters:
     - file: chapter_1_experiment/aecroscopy_command_intro
