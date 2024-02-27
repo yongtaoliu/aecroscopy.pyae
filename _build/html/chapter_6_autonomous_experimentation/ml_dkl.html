@@ -165,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../chapter_getstart/getstart_intro_nopublish.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_getstart/getstart_intro.html">Get Started</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Experiment</span></p>
 <ul class="nav bd-sidenav">
@@ -404,8 +404,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="deep-kernel-learning-driven-piezoresponse-spectroscopy">
 <h1>Deep Kernel Learning driven piezoresponse spectroscopy<a class="headerlink" href="#deep-kernel-learning-driven-piezoresponse-spectroscopy" title="Permalink to this heading">#</a></h1>
-<p><span class="math notranslate nohighlight">\(_{Yongtao}\)</span> <span class="math notranslate nohighlight">\(_{Liu,}\)</span> <span class="math notranslate nohighlight">\(_{liuy3&#64;ornl.gov}\)</span></p>
-<p><span class="math notranslate nohighlight">\(_{July}\)</span> <span class="math notranslate nohighlight">\(_{2023}\)</span></p>
+<p><span class="math notranslate nohighlight">\(_{Yongtao}\)</span> <span class="math notranslate nohighlight">\(_{Liu,}\)</span><br />
+<span class="math notranslate nohighlight">\(_{youngtaoliu&#64;gmail.com}\)</span></p>
+<p><span class="math notranslate nohighlight">\(_{Feb}\)</span> <span class="math notranslate nohighlight">\(_{2024}\)</span></p>
 <section id="install-and-import">
 <h2>Install and Import<a class="headerlink" href="#install-and-import" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -699,7 +700,7 @@ line scan start and end positions:  (-0.5, 0.0, 0.5, 0.0)
 <span class="k">def</span> <span class="nf">EI</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">aoi</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">dklGPR</span><span class="p">],</span> <span class="n">X</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
        <span class="n">best_f</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">xi</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
        <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Expected Improvement</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">tt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span>
