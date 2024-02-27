@@ -2,9 +2,9 @@ format: jb-book
 # format: jb-article
 root: welcome_intro
 parts:
-  - caption: Welcome
-    chapters:
-    - file: chapter_welcome/welcome_intro
+  # - caption: Welcome
+  #   chapters:
+  #   - file: chapter_welcome/welcome_intro
   - caption: Get Started
     chapters:
     - file: chapter_getstart/getstart_intro
