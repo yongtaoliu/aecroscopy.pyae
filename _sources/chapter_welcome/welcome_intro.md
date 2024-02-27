@@ -2,8 +2,13 @@
 
 Welcom to AEcroscoPy! With this site, we aim to provide an introduction and tutorial to use AEcroscoPy for automated and autonomous microscopy experiments and data processing, you will learn how to translate experiment plans to Python programs that can be executed in a microscope. 
 
-```{image} ../images/LOGO.png
+```{image} ../images/LOGO1.png
 :width: 400px
+:align: center
+```
+
+```{image} ../images/LOGO2.png
+:width: 200px
 :align: center
 ```
 

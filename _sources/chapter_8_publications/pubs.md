@@ -2,9 +2,15 @@
 
 List of publications of automated and autonomous microscopy that take advantage of AEcroscopy or can be done with AEcroscopy.
 
-* [Liu, Yongtao, et al. "Disentangling electronic transport and hysteresis at individual grain boundaries in hybrid perovskites via automated scanning probe microscopy." ACS nano (2023).](https://pubs.acs.org/doi/full/10.1021/acsnano.3c03363)
+* [Liu, Yongtao, et al. "AEcroscoPy: A software-hardware framework empowering microscopy toward automated and autonomous experimentation." arXiv preprint arXiv:2312.10281 (2023).](https://arxiv.org/abs/2312.10281)
 
-* [Biswas, Arpan, et al. "A dynamic Bayesian optimized active recommender system for curiosity-driven Human-in-the-loop automated experiments." arXiv preprint arXiv:2304.02484 (2023).](https://arxiv.org/abs/2304.02484)
+* [Smith, Benjamin, et al. "Physics-informed models of domain wall dynamics as a route for autonomous domain wall design via reinforcement learning." Digital Discovery (2024).](https://pubs.rsc.org/en/content/articlehtml/2024/dd/d3dd00126a)
+
+* [Liu, Yongtao, et al. "Synergizing Human Expertise and AI Efficiency with Language Model for Microscopy Operation and Automated Experiment Design." arXiv preprint arXiv:2401.13803 (2024).](https://arxiv.org/abs/2401.13803)
+
+* [Biswas, Arpan, et al. "A dynamic Bayesian optimized active recommender system for curiosity-driven Human-in-the-loop automated experiments." npj Computational Materials 10.1 (2024)](https://www.nature.com/articles/s41524-023-01191-5)
+
+* [Liu, Yongtao, et al. "Disentangling electronic transport and hysteresis at individual grain boundaries in hybrid perovskites via automated scanning probe microscopy." ACS nano (2023).](https://pubs.acs.org/doi/full/10.1021/acsnano.3c03363)
 
 * [Liu, Yongtao, et al. "Learning the right channel in multimodal imaging: automated experiment in piezoresponse force microscopy." npj Computational Materials 9.1 (2023): 34.](https://www.nature.com/articles/s41524-023-00985-x)
 
