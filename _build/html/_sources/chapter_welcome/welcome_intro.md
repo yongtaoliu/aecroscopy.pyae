@@ -6,11 +6,11 @@ $_{youngtaoliu@gmail.com}$
 $_{Feb}$ $_{2024}$
 
 
-```{image} ../images/logo1.png
+```{image} ../images/chapter_welcome_logo1.png
 :width: 300px
 :align: left
 ```
-```{image} ../images/logo2.png
+```{image} ../images/chapter_welcome_logo2.png
 :width: 300px
 :align: left
 ```
