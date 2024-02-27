@@ -7,12 +7,11 @@ $_{Feb}$ $_{2024}$
 
 Welcom to AEcroscoPy! With this site, we aim to provide an introduction and tutorial to use AEcroscoPy for automated and autonomous microscopy experiments and data processing. 
 
-
-```{image} logo1.png
+```{image} ../images/logo1.png
 :width: 300px
 :align: left
 ```
-```{image} logo2.png
+```{image} ../images/logo2.png
 :width: 300px
 :align: left
 ```
