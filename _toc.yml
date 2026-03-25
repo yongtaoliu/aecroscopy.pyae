@@ -2,38 +2,29 @@ format: jb-book
 # format: jb-article
 root: welcome_intro
 parts:
-  # - caption: Welcome
-  #   chapters:
-  #   - file: chapter_welcome/welcome_intro
   - caption: Get Started
     chapters:
     - file: chapter_getstart/getstart_intro
-  - caption: Experiment
+  - caption: Chapter 1 - Introduction
     chapters:
-    - file: chapter_1_experiment/aecroscopy_command_intro
-  - caption: Data Processing
+    - file: chapter_1_introduction/Instruction_for_Cypher
+    - file: chapter_1_introduction/Instruction_for_WaveGenerator
+    - file: chapter_1_introduction/Instruction_for_WaveVI
+  - caption: Chapter 2 - LLM in AEcroscoPy
     chapters:
-    - file: chapter_2_data_processing/dp_intro
-  - caption: Edge Computing
+    - file: chapter_2_llm_in_aecroscopy/llm_intro
+  - caption: Chapter 3 - Automated Experimentation
     chapters:
-    - file: chapter_3_edge_computing/ec_intro
-  - caption: LLM in AEcroscopy
+    - file: chapter_3_automated_experimentation/ht_intro
+    - file: chapter_3_automated_experimentation/Pulse_at_Center_BackSwitch
+    - file: chapter_3_automated_experimentation/Pulse_at_Grid
+    - file: chapter_3_automated_experimentation/Pulse_at_Grid_CypherImage
+  - caption: Chapter 4 - Autonomous Experimentation
     chapters:
-    - file: chapter_4_llm_in_aecroscopy/llm_intro
-  - caption: Automated Experimentation
+    - file: chapter_4_autonomous_experimentation/ae_intro
+  - caption: Chapter 5 - User Contribution
     chapters:
-    - file: chapter_5_automated_experimentation/ht_intro
-    - file: chapter_5_automated_experimentation/ht_domain_writing
-    - file: chapter_5_automated_experimentation/ht_wall_thickness
-  - caption: Autonomous Experimentation
+    - file: chapter_5_user_contribution/uc_intro
+  - caption: Chapter 6 - Publications
     chapters:
-    - file: chapter_6_autonomous_experimentation/ae_intro
-    - file: chapter_6_autonomous_experimentation/ml_dkl
-    - file: chapter_6_autonomous_experimentation/ml_hypoal
-    - file: chapter_6_autonomous_experimentation/ml_resnet
-  - caption: User Contribution
-    chapters:
-    - file: chapter_7_user_contribution/uc_intro
-  - caption: Publications
-    chapters:
-    - file: chapter_8_publications/pubs
+    - file: chapter_6_publications/pubs

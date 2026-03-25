@@ -1,0 +1,1133 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Automated Domain Writing: Pulse at Center with Backswitch &#8212; AEcroscopy</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_3_automated_experimentation/Pulse_at_Center_BackSwitch';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://github.com/yongtaoliu/chapter_3_automated_experimentation/Pulse_at_Center_BackSwitch.html" />
+    <link rel="icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Automated Domain Writing: Grid Pulsing" href="Pulse_at_Grid.html" />
+    <link rel="prev" title="About Automated Experiment" href="ht_intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../welcome_intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="AEcroscopy - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="AEcroscopy - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../welcome_intro.html">
+                    Welcome to AEcroscoPy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_getstart/getstart_intro.html">Get Started</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1_introduction/Instruction_for_Cypher.html">Instruction for AEcroscoPy Cypher Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1_introduction/Instruction_for_WaveGenerator.html">Instruction for AEcroscoPy WaveGenerator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1_introduction/Instruction_for_WaveVI.html">Instruction for AEcroscoPy WaveVI Interface</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - LLM in AEcroscoPy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_llm_in_aecroscopy/llm_intro.html">About LLM and Agentic AI in AEcroscoPy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 3 - Automated Experimentation</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ht_intro.html">About Automated Experiment</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Automated Domain Writing: Pulse at Center with Backswitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pulse_at_Grid.html">Automated Domain Writing: Grid Pulsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Pulse_at_Grid_CypherImage.html">Automated Domain Writing: Grid Pulsing with Cypher Image</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 4 - Autonomous Experimentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4_autonomous_experimentation/ae_intro.html">About Autonomous Experiment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 5 - User Contribution</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5_user_contribution/uc_intro.html">About User Contribution</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 6 - Publications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_publications/pubs.html">Publications</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/yongtaoliu/aecroscopy.pyae" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_3_automated_experimentation/Pulse_at_Center_BackSwitch.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Automated Domain Writing: Pulse at Center with Backswitch</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-experiment">Initialize Experiment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-an-instance-of-pycypher">Initialize an instance of PyCypher</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-an-instance-of-pywavevi">Initialize an instance of PyWaveVI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-a-wave">Set a wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-wave-to-vi">Upload wave to VI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-uploaded-wave">Check uploaded wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-wave">Execute wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-zero-wave">Set zero wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-tip">Move tip</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulsing">Pulsing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-grid-pulsing">Start grid pulsing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-data">Save Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="automated-domain-writing-pulse-at-center-with-backswitch">
+<h1>Automated Domain Writing: Pulse at Center with Backswitch<a class="headerlink" href="#automated-domain-writing-pulse-at-center-with-backswitch" title="Link to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(_{Yongtao}\)</span> <span class="math notranslate nohighlight">\(_{Liu,}\)</span> <span class="math notranslate nohighlight">\(_{youngtaoliu&#64;gmail.com}\)</span></p>
+<p><span class="math notranslate nohighlight">\(_{March}\)</span> <span class="math notranslate nohighlight">\(_{2026}\)</span></p>
+<section id="import">
+<h2>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">aecroscopywave.wavebuilding</span><span class="w"> </span><span class="kn">import</span> <span class="n">WaveGenerator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aecroscopywave.interfaces</span><span class="w"> </span><span class="kn">import</span> <span class="n">WaveVI</span><span class="p">,</span> <span class="n">Cypher</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initialize-experiment">
+<h2>Initialize Experiment<a class="headerlink" href="#initialize-experiment" title="Link to this heading">#</a></h2>
+<section id="initialize-an-instance-of-pycypher">
+<h3>Initialize an instance of PyCypher<a class="headerlink" href="#initialize-an-instance-of-pycypher" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pycy</span> <span class="o">=</span> <span class="n">Cypher</span><span class="o">.</span><span class="n">PyCypher</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test executing Igor Pro commands; you should see messages in Igor Pro&#39;s command window</span>
+<span class="n">pycy</span><span class="o">.</span><span class="n">igor</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="s2">&quot;Print </span><span class="se">\&quot;</span><span class="s2">Igor Execute: Hello from Igor Pro!</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">pycy</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="s2">&quot;Print </span><span class="se">\&quot;</span><span class="s2">Execute: Hello from Igor Pro!</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;DONE--ExecutePrint &quot;Execute: Hello from Igor Pro!&quot;&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initialize-an-instance-of-pywavevi">
+<h3>Initialize an instance of PyWaveVI<a class="headerlink" href="#initialize-an-instance-of-pywavevi" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\Desktop\PyScanner_FPGA_6124_01.exe&#39;</span>
+<span class="n">pyvi</span> <span class="o">=</span> <span class="n">WaveVI</span><span class="o">.</span><span class="n">PyWaveVI</span><span class="p">(</span><span class="n">app_path</span> <span class="o">=</span> <span class="n">_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set DAQ settings for PyWaveVI. It takes the default settings in LabView if no argument is provided</span>
+<span class="n">pyvi</span><span class="o">.</span><span class="n">set_IO_settings</span><span class="p">(</span><span class="n">IO_setting_dict</span> <span class="o">=</span><span class="p">{</span><span class="s2">&quot;trigger_type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;AO_amplifier&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;IO_timeout&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;AI_ch01&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;AI_ch02&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;AI_ch03&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;DONE--set_IO_settings&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-a-wave">
+<h3>Set a wave<a class="headerlink" href="#set-a-wave" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">,</span> <span class="n">backswitchwave</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">square_pulse</span><span class="p">(</span><span class="n">amplitude</span> <span class="o">=</span> <span class="mi">7</span><span class="p">,</span> <span class="n">pulse_duration</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">backswitchwave</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x176ca122f00&gt;]
+</pre></div>
+</div>
+<img alt="../_images/ddd88269ff8c496dcbb8e00035e67df0861cd2362c1fbad4fa034a2f2d490647.png" src="../_images/ddd88269ff8c496dcbb8e00035e67df0861cd2362c1fbad4fa034a2f2d490647.png" />
+</div>
+</div>
+</section>
+<section id="upload-wave-to-vi">
+<h3>Upload wave to VI<a class="headerlink" href="#upload-wave-to-vi" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pyvi</span><span class="o">.</span><span class="n">set_AO_waveforms</span><span class="p">(</span><span class="n">waveform</span><span class="o">=</span><span class="n">backswitchwave</span><span class="p">,</span> <span class="n">zero_tail</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;DONE--set_AO_waveforms&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="check-uploaded-wave">
+<h3>Check uploaded wave<a class="headerlink" href="#check-uploaded-wave" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uploadedwave</span> <span class="o">=</span> <span class="n">pyvi</span><span class="o">.</span><span class="n">get_AO_waveforms</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">uploadedwave</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x176cea0cbc0&gt;]
+</pre></div>
+</div>
+<img alt="../_images/0f0a531d8aeef1f287b6a3e06c1cefb4457277e8be667fda9cac7b9dea2a338e.png" src="../_images/0f0a531d8aeef1f287b6a3e06c1cefb4457277e8be667fda9cac7b9dea2a338e.png" />
+</div>
+</div>
+</section>
+<section id="execute-wave">
+<h3>Execute wave<a class="headerlink" href="#execute-wave" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pyvi</span><span class="o">.</span><span class="n">set_IO_control</span><span class="p">(</span><span class="n">clear</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">upload</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">do_IO</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fetch_result</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;DONE--set_IO_control&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-zero-wave">
+<h3>Set zero wave<a class="headerlink" href="#set-zero-wave" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">,</span> <span class="n">setzero</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">square_pulse</span><span class="p">(</span><span class="n">amplitude</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pulse_duration</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">setzero</span><span class="p">)</span>
+
+<span class="n">pyvi</span><span class="o">.</span><span class="n">set_AO_waveforms</span><span class="p">(</span><span class="n">waveform</span><span class="o">=</span><span class="n">setzero</span><span class="p">,</span> <span class="n">zero_tail</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">pyvi</span><span class="o">.</span><span class="n">set_IO_control</span><span class="p">(</span><span class="n">clear</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">upload</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">do_IO</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fetch_result</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;DONE--set_IO_control&#39;
+</pre></div>
+</div>
+<img alt="../_images/29bad334c99a95e85cd965d3acda7bb0f0093940a74f9a7a6350d9b638c61e55.png" src="../_images/29bad334c99a95e85cd965d3acda7bb0f0093940a74f9a7a6350d9b638c61e55.png" />
+</div>
+</div>
+</section>
+<section id="move-tip">
+<h3>Move tip<a class="headerlink" href="#move-tip" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize tip movement</span>
+<span class="n">pycy</span><span class="o">.</span><span class="n">initialize_move_tip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;DONE--initialize move tip&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Move tip</span>
+<span class="n">pycy</span><span class="o">.</span><span class="n">move_tip</span><span class="p">(</span><span class="n">coordinates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">],</span> <span class="n">coordinates_type</span><span class="o">=</span><span class="s2">&quot;pixel&quot;</span><span class="p">,</span> <span class="n">transit_time</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;DONE--move tip&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="pulsing">
+<h2>Pulsing<a class="headerlink" href="#pulsing" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pulse</span>
+<span class="n">num_x</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">num_y</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">start_pulse_v</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>   <span class="c1"># Define location array parameters</span>
+<span class="n">end_pulse_v</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9</span>
+<span class="n">start_pulse_d</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="n">end_pulse_d</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Generate location array</span>
+<span class="n">pulse_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start_pulse_v</span><span class="p">,</span> <span class="n">end_pulse_v</span><span class="p">,</span> <span class="n">num_x</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="n">pulse_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start_pulse_d</span><span class="p">,</span> <span class="n">end_pulse_d</span><span class="p">,</span> <span class="n">num_y</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="nb">float</span><span class="p">)</span>
+<span class="n">pulse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">pulse_v</span><span class="p">,</span> <span class="n">pulse_d</span><span class="p">)</span>
+<span class="n">pulse_v</span> <span class="o">=</span> <span class="n">pulse</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pulse_d</span> <span class="o">=</span> <span class="n">pulse</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># pulse_pos_x and pulse_pos_y are the coordinates of all locations</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">pulse_v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pulse_d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-3.  -4.2 -5.4 -6.6 -7.8 -9.  -3.  -4.2 -5.4 -6.6 -7.8 -9.  -3.  -4.2
+ -5.4 -6.6 -7.8 -9.  -3.  -4.2 -5.4 -6.6 -7.8 -9.  -3.  -4.2 -5.4 -6.6
+ -7.8 -9.  -3.  -4.2 -5.4 -6.6 -7.8 -9. ]
+[0.05 0.05 0.05 0.05 0.05 0.05 0.24 0.24 0.24 0.24 0.24 0.24 0.43 0.43
+ 0.43 0.43 0.43 0.43 0.62 0.62 0.62 0.62 0.62 0.62 0.81 0.81 0.81 0.81
+ 0.81 0.81 1.   1.   1.   1.   1.   1.  ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">=</span> <span class="n">pycy</span><span class="o">.</span><span class="n">get_MasterVariables</span><span class="p">()</span>
+<span class="n">metadata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ScanSize&#39;: 5e-07,
+ &#39;FastScanSize&#39;: 5e-07,
+ &#39;SlowScanSize&#39;: 5e-07,
+ &#39;ScanRate&#39;: 1.001602564102564,
+ &#39;ScanSpeed&#39;: 1.2520032051282051e-06,
+ &#39;XOffset&#39;: -1.0580746e-06,
+ &#39;YOffset&#39;: 3.1607084e-06,
+ &#39;ScanPoints&#39;: 64.0,
+ &#39;ScanLines&#39;: 64.0,
+ &#39;RoundFactor&#39;: 0.04,
+ &#39;IntegralGain&#39;: 30.0,
+ &#39;ProportionalGain&#39;: 0.0,
+ &#39;ScanAngle&#39;: 0.0,
+ &#39;ScanAngleFactor&#39;: 1.0,
+ &#39;AmplitudeSetpointVolts&#39;: 0.8,
+ &#39;AmplitudeSetpointMeters&#39;: 1e-08,
+ &#39;DriveAmplitude&#39;: 1.0,
+ &#39;DriveFrequency&#39;: 49999.99888241291,
+ &#39;SweepWidth&#39;: 200000.0,
+ &#39;SlowScanEnabled&#39;: 1.0,
+ &#39;DeflectionSetpointVolts&#39;: 1.0,
+ &#39;DeflectionSetpointMeters&#39;: 0.0,
+ &#39;DeflectionSetpointNewtons&#39;: 5e-09,
+ &#39;ImagingMode&#39;: 3.0,
+ &#39;MaxScanSize&#39;: 3e-05,
+ &#39;InvOLS&#39;: 5.104461353927852e-07,
+ &#39;SpringConstant&#39;: 1.0,
+ &#39;DisplaySpringConstant&#39;: 1e-09,
+ &#39;ScanStateChanged&#39;: 0.0,
+ &#39;ScanDown&#39;: 0.0,
+ &#39;XLVDTSens&#39;: 4.2214e-06,
+ &#39;YLVDTSens&#39;: 4.3626e-06,
+ &#39;ZLVDTSens&#39;: 2.45e-06,
+ &#39;XLVDTOffset&#39;: 0.58,
+ &#39;YLVDTOffset&#39;: -1.2,
+ &#39;ZLVDTOffset&#39;: 0.0,
+ &#39;YIgain&#39;: 4.84,
+ &#39;YPgain&#39;: -inf,
+ &#39;XIgain&#39;: 4.73,
+ &#39;XPgain&#39;: -inf,
+ &#39;LastScan&#39;: 2.0,
+ &#39;XPiezoSens&#39;: -1.7437e-07,
+ &#39;YPiezoSens&#39;: 1.8489e-07,
+ &#39;ZPiezoSens&#39;: 3.0559e-08,
+ &#39;XDriveOffset&#39;: 0.0,
+ &#39;YDriveOffset&#39;: 0.0,
+ &#39;SweepPoints&#39;: 480.0,
+ &#39;SecretGain&#39;: 0.0,
+ &#39;YSgain&#39;: 7.59,
+ &#39;XSgain&#39;: 7.53,
+ &#39;DIsplayLVDTTraces&#39;: 0.0,
+ &#39;PhaseOffset&#39;: 0.0,
+ &#39;BaseSuffix&#39;: 4.0,
+ &#39;SaveImage&#39;: 2.0,
+ &#39;ParmChange&#39;: 0.0,
+ &#39;OldScanSize&#39;: nan,
+ &#39;OldYOffset&#39;: 3.1607084e-06,
+ &#39;OldXOffset&#39;: -1.0580746e-06,
+ &#39;ZIgain&#39;: 5.41,
+ &#39;ZPgain&#39;: -inf,
+ &#39;ZSgain&#39;: 0.0,
+ &#39;AmpInvOLS&#39;: 1.595144173102454e-08,
+ &#39;UpdateCounter&#39;: 106.0,
+ &#39;DoMunge&#39;: 0.0,
+ &#39;XMungeAlpha&#39;: 1.0,
+ &#39;YMungeAlpha&#39;: 1.0,
+ &#39;ZMungeAlpha&#39;: 1.0,
+ &#39;StartHeadTemp&#39;: 1.3041665976984393,
+ &#39;StartScannerTemp&#39;: -1.6667416569572848,
+ &#39;DontChangeXPT&#39;: 1.0,
+ &#39;LowNoise&#39;: 0.0,
+ &#39;ScreenRatio&#39;: 0.75,
+ &#39;XDriftRate&#39;: 0.0,
+ &#39;YDriftRate&#39;: 0.0,
+ &#39;XDriftTotal&#39;: 0.0,
+ &#39;YDriftTotal&#39;: 0.0,
+ &#39;DriftBIts&#39;: 0.0,
+ &#39;DriftCount&#39;: 0.0,
+ &#39;Setpoint&#39;: 0.0008,
+ &#39;FastRatio&#39;: 1.0,
+ &#39;SlowRatio&#39;: 1.0,
+ &#39;TopLine&#39;: 255.0,
+ &#39;BottomLine&#39;: 0.0,
+ &#39;ScanStatus&#39;: 0.0,
+ &#39;DelayUpdate&#39;: 1.0,
+ &#39;MarkerRatio&#39;: 0.0,
+ &#39;StartLineCount&#39;: 0.0,
+ &#39;OldAmplitudeSetpointVolts&#39;: 0.8,
+ &#39;OldDeflectionSetPointVolts&#39;: 0.0,
+ &#39;ScanMode&#39;: 0.0,
+ &#39;Interpolate&#39;: -1248.0,
+ &#39;TipVoltage&#39;: 0.0,
+ &#39;SurfaceVoltage&#39;: 0.0,
+ &#39;FreqIgain&#39;: 5.0,
+ &#39;FreqPgain&#39;: 0.0,
+ &#39;FreqSgain&#39;: 0.0,
+ &#39;OrcaGain&#39;: nan,
+ &#39;FreqGainOn&#39;: 0.0,
+ &#39;UserIn0Gain&#39;: 1.0,
+ &#39;UserIn1Gain&#39;: 1.0,
+ &#39;UserIn2Gain&#39;: 1.0,
+ &#39;LateralGain&#39;: 1.0,
+ &#39;FrequencyHack&#39;: 0.0,
+ &#39;MagneticField&#39;: nan,
+ &#39;DriveGainOn&#39;: 0.0,
+ &#39;DriveIGain&#39;: 50.0,
+ &#39;DrivePGain&#39;: 0.0,
+ &#39;DriveSGain&#39;: 0.0,
+ &#39;UserIn0Offset&#39;: 0.0,
+ &#39;UserIn1Offset&#39;: 0.0,
+ &#39;UserIn2Offset&#39;: 0.0,
+ &#39;LateralOffset&#39;: 0.0,
+ &#39;LastImage&#39;: 0.0,
+ &#39;ZoomSize&#39;: 5.000000000000001e-07,
+ &#39;ZoomXOffset&#39;: -1.058074594379582e-06,
+ &#39;ZoomYOffset&#39;: 3.1607083876459407e-06,
+ &#39;User0Voltage&#39;: 0.0,
+ &#39;User1Voltage&#39;: 0.0,
+ &#39;ExtendedZ&#39;: 0.0,
+ &#39;DriveAmplitude1&#39;: 0.1,
+ &#39;DriveFrequency1&#39;: 450000.0,
+ &#39;SweepWidth1&#39;: 5000.0,
+ &#39;PhaseOffset1&#39;: 0.0,
+ &#39;Amp2InvOLS&#39;: 2e-08,
+ &#39;VoltageParm&#39;: 0.0,
+ &#39;MicroscopeID&#39;: 4.0,
+ &#39;CapacitanceSens&#39;: 1.0,
+ &#39;CapacitanceOffset&#39;: 0.0,
+ &#39;CapPhaseOffset&#39;: 0.0,
+ &#39;TipBiasOffset&#39;: 0.0,
+ &#39;TipHeaterOffset&#39;: 0.0,
+ &#39;SurfaceBiasOffset&#39;: 0.0,
+ &#39;UseCantHolder&#39;: 2.0,
+ &#39;CurrentCantHolder&#39;: 2.0,
+ &#39;XScanDirection&#39;: -1.0,
+ &#39;YScanDirection&#39;: 1.0,
+ &#39;SaveImageCount&#39;: 2.0,
+ &#39;SaveImageLines&#39;: 64.0,
+ &#39;OrcaGain2&#39;: nan,
+ &#39;UpdateSlowWave&#39;: 0.0,
+ &#39;FBFilterBW&#39;: 5000.0,
+ &#39;CurrentSetpointAmps&#39;: 1.0,
+ &#39;CurrentSetpointVolts&#39;: 1.0,
+ &#39;OldCurrentSetpointVolts&#39;: 1.0,
+ &#39;OldCurrentSetpointAmps&#39;: 1.0,
+ &#39;HasFM&#39;: 1.0,
+ &#39;LastScanWithdraw&#39;: 0.0,
+ &#39;HasLaserRelay&#39;: 1.0,
+ &#39;ToggleLaserRelay&#39;: 0.0,
+ &#39;Decimation&#39;: 312.0,
+ &#39;DARTIGain&#39;: 5.5,
+ &#39;DARTPGain&#39;: 0.0,
+ &#39;SampleHolder&#39;: 1.0,
+ &#39;ManualSampleHolder&#39;: 0.0,
+ &#39;CypherXPTLock&#39;: 1024.0,
+ &#39;XPTLock&#39;: 16384.0,
+ &#39;LogFeedback&#39;: 0.0,
+ &#39;ARSysScanBusy&#39;: 0.0,
+ &#39;SimpleControls&#39;: 0.0,
+ &#39;PointsLines&#39;: 64.0,
+ &#39;FreeAirAmplitude&#39;: nan,
+ &#39;FreeAirPhase&#39;: nan,
+ &#39;FreeAirDeflection&#39;: -0.006160736083984375,
+ &#39;FreeAirDriveAmplitude&#39;: 0.0,
+ &#39;ContinualRetune&#39;: 0.0,
+ &#39;ForceFilter&#39;: 0.0,
+ &#39;TemperatureSens&#39;: 1.0,
+ &#39;TemperatureOffset&#39;: 0.0,
+ &#39;OffsetBehavior&#39;: 2.0,
+ &#39;InputRange&#39;: 2.0,
+ &#39;XLVDTSensSlope&#39;: 0.0,
+ &#39;YLVDTSensSlope&#39;: 0.0,
+ &#39;XLVDTSensIntercept&#39;: 4.2214e-06,
+ &#39;YLVDTSensIntercept&#39;: 4.3626e-06,
+ &#39;HaveWeKilledTheProgressBar&#39;: 1.0,
+ &#39;PreScanSetting&#39;: 0.0,
+ &#39;ImageFrameTime&#39;: 127.7952,
+ &#39;FBFilterSelectivity&#39;: 0.0,
+ &#39;HasDriveChoke&#39;: 1.0,
+ &#39;DriveChokeOn&#39;: 0.0,
+ &#39;CFCWFOS&#39;: 0.0,
+ &#39;SkewAngle&#39;: 0.0,
+ &#39;ContinualRetuneTime&#39;: 60.0,
+ &#39;DRTimeStamp&#39;: 0.0,
+ &#39;CRTimeStamp&#39;: 0.0,
+ &#39;Cypher15VPower&#39;: 1.0,
+ &#39;HasBlueDrive&#39;: 1.0,
+ &#39;BlueDriveOn&#39;: 0.0,
+ &#39;blueDriveOffset&#39;: 4.0487967,
+ &#39;blueDriveMaxAmplitude&#39;: 1.2027880627294065,
+ &#39;bDDriveAmplitude&#39;: 0.002,
+ &#39;bDDriveAmplitude1&#39;: 0.002,
+ &#39;bDDiffEfficiencyV&#39;: 0.007482615000000001,
+ &#39;BackPackIn0Gain&#39;: 1.0,
+ &#39;BackPackIn0Offset&#39;: 0.0,
+ &#39;BackPackIn1Gain&#39;: 1.0,
+ &#39;BackPackIn1Offset&#39;: 0.0,
+ &#39;BackPackIn2Gain&#39;: 1.0,
+ &#39;BackPackIn2Offset&#39;: 0.0,
+ &#39;BackPackIn3Gain&#39;: 1.0,
+ &#39;BackPackIn3Offset&#39;: 0.0,
+ &#39;BackPackIn4Gain&#39;: 1.0,
+ &#39;BackPackIn4Offset&#39;: 0.0,
+ &#39;bdReCalibrateTime&#39;: 1.0,
+ &#39;bdMotorError&#39;: 0.0,
+ &#39;ScanModeGUI&#39;: 0.0,
+ &#39;FastMapSetpointVolts&#39;: 1.0,
+ &#39;FastMapSetpointNewtons&#39;: 5.1045e-07,
+ &#39;OldFastMapSetpointVolts&#39;: 1.0,
+ &#39;OldFastMapSetpointNewtons&#39;: 1.0,
+ &#39;FastMapZRate&#39;: 300.3003003003003,
+ &#39;FastMapAmplitude&#39;: 4e-07,
+ &#39;FastMapFBMethod&#39;: 0.0,
+ &#39;FastMapFBPhase&#39;: 0.0,
+ &#39;FastMapFBWindow&#39;: 10.0,
+ &#39;FastMapAmpSetpointVolts&#39;: 0.8,
+ &#39;FastMapAmpSetpointMeters&#39;: 1.27608e-08,
+ &#39;FastMapIndex&#39;: 0.0,
+ &#39;QueueProgress&#39;: 0.0,
+ &#39;QueueEstimate&#39;: 0.0,
+ &#39;QueueExpand&#39;: 0.0,
+ &#39;FastMapIGain&#39;: 10.0,
+ &#39;FastMapScanRate&#39;: 1.8768768768768769,
+ &#39;blueThermOn&#39;: 0.0,
+ &#39;FMapFreqSetpointHertz&#39;: 100.0,
+ &#39;FMapDispSetpointVolts&#39;: 0.5,
+ &#39;OldFMapFreqSetpointHertz&#39;: 100.0,
+ &#39;OldFMapDispSetpointVolts&#39;: 0.5,
+ &#39;OldFastMapAmpSetpointVolts&#39;: 0.8,
+ &#39;OldFastMapAmpSetpointMeters&#39;: 1e-08,
+ &#39;FastMapScanPoints&#39;: 256.0,
+ &#39;FastMapScanLines&#39;: 256.0,
+ &#39;FastMapOptScanPoints&#39;: 256.0,
+ &#39;FastMapOptScanLines&#39;: 256.0,
+ &#39;DisplaySpringConstant2&#39;: 1.0000000000000001e-07,
+ &#39;Springconstant2&#39;: 100.0,
+ &#39;FreqDGain&#39;: 0.0,
+ &#39;DriveDGain&#39;: 0.0,
+ &#39;ImageSaveExpand&#39;: 0.0,
+ &#39;Saturated&#39;: 0.0,
+ &#39;FreeAirDissipation&#39;: nan,
+ &#39;IlluminatePercent&#39;: 90.0,
+ &#39;ImageFormatMode&#39;: 0.0,
+ &#39;ScanDirMode&#39;: 0.0,
+ &#39;SinusoidalOn&#39;: 0.0,
+ &#39;FrameCount&#39;: 0.0,
+ &#39;ScanShape&#39;: 0.0,
+ &#39;FastReturnLines&#39;: 8.0,
+ &#39;FastSkipLines&#39;: 4.0,
+ &#39;TimeShift&#39;: 0.0,
+ &#39;FastInputFilter&#39;: 0.0,
+ &#39;IMSScanStateChanged&#39;: 0.0,
+ &#39;FastZPiezoSens&#39;: 3.6124e-08,
+ &#39;UpdateFrameOnly&#39;: 0.0,
+ &#39;FastScopeLine&#39;: 15.875,
+ &#39;TimeShiftDisplay&#39;: 0.0,
+ &#39;TimeShiftTotal&#39;: 0.0,
+ &#39;ShouldSSCBeSet&#39;: 0.0,
+ &#39;FastMapCaptureRate&#39;: 0.0,
+ &#39;bDMaskGain&#39;: 1.0,
+ &#39;BlueDriveMaxAmplitudeWatts&#39;: 0.008999999612569809,
+ &#39;FMapDispSetpointWatts&#39;: 0.008999999612569809,
+ &#39;OldFMapDispSetpointWatts&#39;: 0.5,
+ &#39;FMFBFilterBW&#39;: 1500.0,
+ &#39;IsLDV&#39;: 0.0,
+ &#39;FastMapAmpRelativeSetpointVolts&#39;: 0.8,
+ &#39;FastMapAmpRelativeSetpointMeter&#39;: 1.27608e-08,
+ &#39;FastMapAbsoluteSetpointNewtons&#39;: 5.1045e-07,
+ &#39;FastMapAbsoluteSetpointVolts&#39;: 1.0,
+ &#39;OldFastMapAmpRelativeSetpointVo&#39;: 0.8,
+ &#39;OldFastMapAmpRelativeSetpointMe&#39;: 8.72e-08,
+ &#39;OldFastMapAbsoluteSetpointNewto&#39;: 1e-07,
+ &#39;OldFastMapAbsoluteSetpointVolts&#39;: 1.0,
+ &#39;FFMapRelativeTrigger&#39;: 1.0,
+ &#39;StageIsMoving&#39;: 0.0,
+ &#39;FlipBiasSignWithdrawDist&#39;: 5e-09,
+ &#39;ZMaxScanSize&#39;: 0.0,
+ &#39;bdMaskHomed&#39;: 0.0,
+ &#39;QPDIInputRangeDuringCal&#39;: 1.05,
+ &#39;FreeAirAmplitude2&#39;: nan,
+ &#39;FreeAirPhase2&#39;: nan,
+ &#39;LastThreadHandle&#39;: 8944.0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CenterX</span><span class="p">,</span> <span class="n">CenterY</span> <span class="o">=</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;XOffset&#39;</span><span class="p">],</span> <span class="n">metadata</span><span class="p">[</span><span class="s1">&#39;YOffset&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="start-grid-pulsing">
+<h3>Start grid pulsing<a class="headerlink" href="#start-grid-pulsing" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize tip movement</span>
+<span class="n">pycy</span><span class="o">.</span><span class="n">initialize_move_tip</span><span class="p">()</span>
+<span class="n">pycy</span><span class="o">.</span><span class="n">engage</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pulse_v</span><span class="p">)):</span>
+    <span class="c1"># Upload backswitchwave and execute</span>
+    <span class="n">pyvi</span><span class="o">.</span><span class="n">set_AO_waveforms</span><span class="p">(</span><span class="n">waveform</span><span class="o">=</span><span class="n">backswitchwave</span><span class="p">,</span> <span class="n">zero_tail</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">pyvi</span><span class="o">.</span><span class="n">set_IO_control</span><span class="p">(</span><span class="n">clear</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">upload</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">do_IO</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fetch_result</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="c1"># Backswitch Scan</span>
+    <span class="n">pycy</span><span class="o">.</span><span class="n">set_Master_Panel</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;DriveAmplitude&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ScanSize&quot;</span><span class="p">:</span> <span class="mf">5e-7</span><span class="p">},</span> <span class="n">do_scan</span><span class="o">=</span><span class="s2">&quot;Frame Up&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># Upload setzero and execute</span>
+    <span class="n">pyvi</span><span class="o">.</span><span class="n">set_AO_waveforms</span><span class="p">(</span><span class="n">waveform</span><span class="o">=</span><span class="n">setzero</span><span class="p">,</span> <span class="n">zero_tail</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">pyvi</span><span class="o">.</span><span class="n">set_IO_control</span><span class="p">(</span><span class="n">clear</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">upload</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">do_IO</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fetch_result</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1">#####################---Move tip to the pulse location---#####################</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">square_wave</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">square_pulse</span><span class="p">(</span><span class="n">amplitude</span> <span class="o">=</span> <span class="n">pulse_v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">pulse_duration</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">pulse_d</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mf">0.2</span><span class="p">])</span>
+    <span class="n">pyvi</span><span class="o">.</span><span class="n">set_AO_waveforms</span><span class="p">(</span><span class="n">waveform</span><span class="o">=</span><span class="n">square_wave</span><span class="p">,</span> <span class="n">zero_tail</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">pycy</span><span class="o">.</span><span class="n">initialize_move_tip</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">pycy</span><span class="o">.</span><span class="n">engage</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="c1"># Loc center</span>
+    <span class="n">pycy</span><span class="o">.</span><span class="n">move_tip</span><span class="p">(</span><span class="n">coordinates</span> <span class="o">=</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">],</span> <span class="n">coordinates_type</span><span class="o">=</span><span class="s2">&quot;pixel&quot;</span><span class="p">,</span> <span class="n">transit_time</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">pyvi</span><span class="o">.</span><span class="n">set_IO_control</span><span class="p">(</span><span class="n">clear</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">upload</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">do_IO</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">fetch_result</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+ 
+    <span class="c1">#####################---Set image parameter, particular center offset---#####################</span>
+    <span class="n">pycy</span><span class="o">.</span><span class="n">set_Master_Panel</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="p">{</span> <span class="s1">&#39;DriveAmplitude&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;ScanSize&quot;</span><span class="p">:</span> <span class="mf">5e-7</span><span class="p">},</span> <span class="n">do_scan</span><span class="o">=</span><span class="s2">&quot;Frame Up&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;DriveAmplitude&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;ScanSize&quot;</span><span class="p">:</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="s2">&quot;ScanPoints&quot;</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span> <span class="s2">&quot;ScanLines&quot;</span><span class="p">:</span> <span class="mi">512</span><span class="p">,</span> <span class="s2">&quot;ScanRate&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> 
+          <span class="s1">&#39;XOffset&#39;</span><span class="p">:</span> <span class="n">CenterX</span><span class="p">,</span> <span class="s1">&#39;YOffset&#39;</span><span class="p">:</span> <span class="n">CenterY</span><span class="p">}</span>
+<span class="n">pycy</span><span class="o">.</span><span class="n">set_Master_Panel</span><span class="p">(</span><span class="n">parameters</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">do_scan</span><span class="o">=</span><span class="s2">&quot;Frame Up&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;DONE--set Master Panel&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="save-data">
+<h2>Save Data<a class="headerlink" href="#save-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="s1">&#39;pulse.npz&#39;</span><span class="p">,</span> <span class="n">pulse_v</span> <span class="o">=</span> <span class="n">pulse_v</span><span class="p">,</span> <span class="n">pulse_d</span> <span class="o">=</span> <span class="n">pulse_d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="n">metadata</span> <span class="o">=</span> <span class="n">pycy</span><span class="o">.</span><span class="n">get_MasterVariables</span><span class="p">()</span>
+
+<span class="c1"># Save</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;metadata.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_3_automated_experimentation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ht_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">About Automated Experiment</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Pulse_at_Grid.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Automated Domain Writing: Grid Pulsing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-experiment">Initialize Experiment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-an-instance-of-pycypher">Initialize an instance of PyCypher</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#initialize-an-instance-of-pywavevi">Initialize an instance of PyWaveVI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-a-wave">Set a wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-wave-to-vi">Upload wave to VI</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-uploaded-wave">Check uploaded wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-wave">Execute wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-zero-wave">Set zero wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#move-tip">Move tip</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pulsing">Pulsing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-grid-pulsing">Start grid pulsing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-data">Save Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By AEcroscopy Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
