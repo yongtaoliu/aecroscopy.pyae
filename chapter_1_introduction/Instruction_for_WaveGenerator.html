@@ -1,0 +1,720 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Instruction for AEcroscoPy WaveGenerator &#8212; AEcroscopy</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_1_introduction/Instruction_for_WaveGenerator';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://github.com/yongtaoliu/chapter_1_introduction/Instruction_for_WaveGenerator.html" />
+    <link rel="icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Instruction for AEcroscoPy WaveVI Interface" href="Instruction_for_WaveVI.html" />
+    <link rel="prev" title="Instruction for AEcroscoPy Cypher Interface" href="Instruction_for_Cypher.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../welcome_intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="AEcroscopy - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="AEcroscopy - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../welcome_intro.html">
+                    Welcome to AEcroscoPy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_getstart/getstart_intro.html">Get Started</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Introduction</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Instruction_for_Cypher.html">Instruction for AEcroscoPy Cypher Interface</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Instruction for AEcroscoPy WaveGenerator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Instruction_for_WaveVI.html">Instruction for AEcroscoPy WaveVI Interface</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - LLM in AEcroscoPy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_llm_in_aecroscopy/llm_intro.html">About LLM and Agentic AI in AEcroscoPy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 3 - Automated Experimentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3_automated_experimentation/ht_intro.html">About Automated Experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3_automated_experimentation/Pulse_at_Center_BackSwitch.html">Automated Domain Writing: Pulse at Center with Backswitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3_automated_experimentation/Pulse_at_Grid.html">Automated Domain Writing: Grid Pulsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3_automated_experimentation/Pulse_at_Grid_CypherImage.html">Automated Domain Writing: Grid Pulsing with Cypher Image</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 4 - Autonomous Experimentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4_autonomous_experimentation/ae_intro.html">About Autonomous Experiment</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 5 - User Contribution</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_5_user_contribution/uc_intro.html">About User Contribution</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 6 - Publications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_publications/pubs.html">Publications</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/yongtaoliu/aecroscopy.pyae" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_1_introduction/Instruction_for_WaveGenerator.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Instruction for AEcroscoPy WaveGenerator</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#square-wave">Square Wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#square-pulse-single">Square Pulse (Single)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#square-pulse-multiple">Square Pulse (Multiple)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chirp-wave">Chirp Wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-frequency-wave">Multi-Frequency Wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangular-wave">Triangular Wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangular-modulated-pulse">Triangular Modulated Pulse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forc-wave">FORC Wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forc-modulated-pulse">FORC Modulated Pulse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#band-excitation-be-wave">Band Excitation (BE) Wave</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="instruction-for-aecroscopy-wavegenerator">
+<h1>Instruction for AEcroscoPy WaveGenerator<a class="headerlink" href="#instruction-for-aecroscopy-wavegenerator" title="Link to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(_{Yongtao}\)</span> <span class="math notranslate nohighlight">\(_{Liu,}\)</span> <span class="math notranslate nohighlight">\(_{liuy3&#64;ornl.gov}\)</span></p>
+<p><span class="math notranslate nohighlight">\(_{February}\)</span> <span class="math notranslate nohighlight">\(_{2026}\)</span></p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">WaveGenerator</span></code> is the AEcroscoPy module for building voltage waveforms to be output through the DAQ card. It provides factory functions for common waveform shapes used in scanning probe microscopy experiments, including square pulses, chirp sweeps, triangular FORC waveforms, and Band Excitation (BE) excitation signals.</p>
+<p>All generator functions return <code class="docutils literal notranslate"><span class="pre">(t,</span> <span class="pre">wave)</span></code> — a time array and the corresponding voltage array — which can be plotted with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> or passed directly to <code class="docutils literal notranslate"><span class="pre">PyWaveVI</span></code> for hardware output.</p>
+</section>
+<section id="import">
+<h2>Import<a class="headerlink" href="#import" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">aecroscopywave.wavebuilding</span><span class="w"> </span><span class="kn">import</span> <span class="n">WaveGenerator</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="square-wave">
+<h3>Square Wave<a class="headerlink" href="#square-wave" title="Link to this heading">#</a></h3>
+<p>Generates a continuous square wave at a specified frequency and amplitude. Useful for periodic modulation or testing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate a 10 Hz square wave, 2V amplitude, 50% duty cycle</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">wave</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">square_wave</span><span class="p">(</span><span class="n">frequency</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">duty</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">wave</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="square-pulse-single">
+<h3>Square Pulse (Single)<a class="headerlink" href="#square-pulse-single" title="Link to this heading">#</a></h3>
+<p>Generates a single voltage pulse with configurable rise time, hold time, and fall time. Commonly used for domain switching in ferroelectric experiments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Single 5V pulse: 0.1s 0V → 0.5s xV → 0.1s 0V</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">wave</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">square_pulse</span><span class="p">(</span><span class="n">amplitude</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">pulse_duration</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">wave</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="square-pulse-multiple">
+<h3>Square Pulse (Multiple)<a class="headerlink" href="#square-pulse-multiple" title="Link to this heading">#</a></h3>
+<p>Generates a train of repeated pulses. Specify <code class="docutils literal notranslate"><span class="pre">num_pulses</span></code> to repeat the same pulse waveform multiple times.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 5 pulses with same timing</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">wave</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">square_pulse</span><span class="p">(</span><span class="n">amplitude</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">pulse_duration</span><span class="o">=</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span> 
+                                        <span class="n">repeats</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">wave</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="chirp-wave">
+<h3>Chirp Wave<a class="headerlink" href="#chirp-wave" title="Link to this heading">#</a></h3>
+<p>Generates a frequency-swept sinusoidal wave (chirp) from <code class="docutils literal notranslate"><span class="pre">frequency_start</span></code> to <code class="docutils literal notranslate"><span class="pre">frequency_end</span></code>. Used for frequency response characterization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sweep from 100 Hz to 1000 Hz over 2 seconds</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">wave</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">chirp_wave</span><span class="p">(</span><span class="n">frequency_start</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">frequency_end</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
+                                   <span class="n">duration</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">amplitude</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">wave</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="multi-frequency-wave">
+<h3>Multi-Frequency Wave<a class="headerlink" href="#multi-frequency-wave" title="Link to this heading">#</a></h3>
+<p>Generates a superposition of multiple sinusoidal components, each with its own frequency and amplitude. Useful for intermodulation or multi-frequency imaging experiments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Two frequencies for beat/intermodulation testing</span>
+<span class="n">components</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">1000</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1100</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)]</span>  <span class="c1"># (frequency_Hz, amplitude)</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">wave</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">composite_wave</span><span class="p">(</span><span class="n">components</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="c1"># Results in 100 Hz beat frequency</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">wave</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="triangular-wave">
+<h3>Triangular Wave<a class="headerlink" href="#triangular-wave" title="Link to this heading">#</a></h3>
+<p>Generates a triangular (sawtooth-like) voltage sweep over a specified number of cycles and amplitude. Used in FORC-style measurements and bias spectroscopy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # 5 cycles with fine discretization</span>
+<span class="n">steps</span><span class="p">,</span> <span class="n">wave</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span>
+    <span class="n">cycle_amplitude</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> 
+    <span class="n">cycle_number</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
+    <span class="n">steps_per_cycle</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span> 
+    <span class="n">points_per_step</span><span class="o">=</span><span class="mi">10</span>  <span class="c1"># Dwell time per voltage</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="n">wave</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="triangular-modulated-pulse">
+<h3>Triangular Modulated Pulse<a class="headerlink" href="#triangular-modulated-pulse" title="Link to this heading">#</a></h3>
+<p>Combines a triangular voltage envelope with a pulsed modulation at each step. Useful for switching spectroscopy with interleaved read pulses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Each voltage step: 100 samples ON, 100 samples OFF</span>
+<span class="n">steps</span><span class="p">,</span> <span class="n">wave</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">triangular_modulated_pulse</span><span class="p">(</span>
+    <span class="n">cycle_amplitude</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> 
+    <span class="n">steps_per_cycle</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> 
+    <span class="n">points_per_step</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="n">wave</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="forc-wave">
+<h3>FORC Wave<a class="headerlink" href="#forc-wave" title="Link to this heading">#</a></h3>
+<p>Generates a First-Order Reversal Curve (FORC) waveform with a configurable number of amplitude steps. Used to map hysteresis and switching distributions in ferroelectrics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 10 amplitude steps from 1V to 10V</span>
+<span class="n">steps</span><span class="p">,</span> <span class="n">wave</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">forc</span><span class="p">(</span>
+    <span class="n">forc_segment_number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+    <span class="n">forc_start_amplitude</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> 
+    <span class="n">forc_end_amplitude</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> 
+    <span class="n">steps_per_cycle</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="n">wave</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="forc-modulated-pulse">
+<h3>FORC Modulated Pulse<a class="headerlink" href="#forc-modulated-pulse" title="Link to this heading">#</a></h3>
+<p>Combines a FORC voltage sweep with a modulated pulse at each step, allowing simultaneous switching and readout.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pulsed FORC with 10 amplitude steps</span>
+<span class="n">steps</span><span class="p">,</span> <span class="n">wave</span> <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">forc_modulated_pulse</span><span class="p">(</span>
+    <span class="n">forc_segment_number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+    <span class="n">forc_start_amplitude</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> 
+    <span class="n">forc_end_amplitude</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> 
+    <span class="n">steps_per_cycle</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> 
+    <span class="n">points_per_step</span><span class="o">=</span><span class="mi">50</span>  <span class="c1"># 50 ON + 50 OFF per step</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">steps</span><span class="p">,</span> <span class="n">wave</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="band-excitation-be-wave">
+<h3>Band Excitation (BE) Wave<a class="headerlink" href="#band-excitation-be-wave" title="Link to this heading">#</a></h3>
+<p>Generates a Band Excitation waveform — a multi-frequency signal spanning a defined bandwidth around a center frequency. The BE wave is the primary excitation used in BE-PFM and BEPS experiments. Returns the waveform, its FFT, frequency vector, and the indices of active frequency bins.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set basic BE excitation wave using function from PyWaveGenerator</span>
+<span class="n">base_be_wave</span><span class="p">,</span> <span class="n">fft_be</span><span class="p">,</span> <span class="n">w_vec</span><span class="p">,</span> <span class="n">hot_bins</span>  <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">be_wave</span><span class="p">(</span><span class="n">BE_band_center</span> <span class="o">=</span> <span class="mf">350E3</span><span class="p">,</span> <span class="n">BE_band_width</span> <span class="o">=</span> <span class="mf">30E3</span><span class="p">,</span> <span class="n">BE_amplitude</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> 
+                                                                  <span class="n">BE_repeats</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">BE_pulse_duration_req</span> <span class="o">=</span> <span class="mf">4.0E-3</span><span class="p">,</span> <span class="n">BE_phase_variation</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plot the BE wave</span>
+<span class="n">WaveGenerator</span><span class="o">.</span><span class="n">plot_BE_wave</span><span class="p">(</span><span class="n">base_be_wave</span><span class="p">,</span> <span class="n">fft_be</span><span class="p">,</span> <span class="n">w_vec</span><span class="p">,</span> <span class="n">IO_rate</span><span class="o">=</span><span class="mf">4e6</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Band Excitation Wave&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_1_introduction"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Instruction_for_Cypher.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Instruction for AEcroscoPy Cypher Interface</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Instruction_for_WaveVI.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Instruction for AEcroscoPy WaveVI Interface</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import">Import</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#square-wave">Square Wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#square-pulse-single">Square Pulse (Single)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#square-pulse-multiple">Square Pulse (Multiple)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chirp-wave">Chirp Wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-frequency-wave">Multi-Frequency Wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangular-wave">Triangular Wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangular-modulated-pulse">Triangular Modulated Pulse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forc-wave">FORC Wave</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forc-modulated-pulse">FORC Modulated Pulse</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#band-excitation-be-wave">Band Excitation (BE) Wave</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By AEcroscopy Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
