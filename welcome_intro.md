@@ -1,12 +1,13 @@
 # Welcome to AEcroscoPy
 
-### Transforming Microscopy from Manual Observation to Autonomous Discovery.
 
 $_{Yongtao}$ $_{Liu}$ 
 
 $_{youngtaoliu@gmail.com}$
 
 $_{March}$ $_{2026}$
+
+#### Transforming Microscopy from Manual Observation to Autonomous Discovery.
 
 Welcome to AEcroscoPy! AEcroscoPy is a Python-based ecosystem designed to bridge the gap between complex experimental design and microscope execution, providing researchers with the tools and tutorials needed to translate high-level experiment plans into executable Python programs, enabling a new era of automated and autonomous microscopy. 
 
