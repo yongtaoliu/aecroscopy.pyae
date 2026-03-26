@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -378,7 +378,6 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangular-modulated-pulse">Triangular Modulated Pulse</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forc-wave">FORC Wave</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forc-modulated-pulse">FORC Modulated Pulse</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#band-excitation-be-wave">Band Excitation (BE) Wave</a></li>
 </ul>
 </li>
 </ul>
@@ -564,22 +563,6 @@
 </div>
 </div>
 </section>
-<section id="band-excitation-be-wave">
-<h3>Band Excitation (BE) Wave<a class="headerlink" href="#band-excitation-be-wave" title="Link to this heading">#</a></h3>
-<p>Generates a Band Excitation waveform — a multi-frequency signal spanning a defined bandwidth around a center frequency. The BE wave is the primary excitation used in BE-PFM and BEPS experiments. Returns the waveform, its FFT, frequency vector, and the indices of active frequency bins.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set basic BE excitation wave using function from PyWaveGenerator</span>
-<span class="n">base_be_wave</span><span class="p">,</span> <span class="n">fft_be</span><span class="p">,</span> <span class="n">w_vec</span><span class="p">,</span> <span class="n">hot_bins</span>  <span class="o">=</span> <span class="n">WaveGenerator</span><span class="o">.</span><span class="n">be_wave</span><span class="p">(</span><span class="n">BE_band_center</span> <span class="o">=</span> <span class="mf">350E3</span><span class="p">,</span> <span class="n">BE_band_width</span> <span class="o">=</span> <span class="mf">30E3</span><span class="p">,</span> <span class="n">BE_amplitude</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> 
-                                                                  <span class="n">BE_repeats</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">BE_pulse_duration_req</span> <span class="o">=</span> <span class="mf">4.0E-3</span><span class="p">,</span> <span class="n">BE_phase_variation</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># Plot the BE wave</span>
-<span class="n">WaveGenerator</span><span class="o">.</span><span class="n">plot_BE_wave</span><span class="p">(</span><span class="n">base_be_wave</span><span class="p">,</span> <span class="n">fft_be</span><span class="p">,</span> <span class="n">w_vec</span><span class="p">,</span> <span class="n">IO_rate</span><span class="o">=</span><span class="mf">4e6</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Band Excitation Wave&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 </section>
 
@@ -660,7 +643,6 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangular-modulated-pulse">Triangular Modulated Pulse</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forc-wave">FORC Wave</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#forc-modulated-pulse">FORC Modulated Pulse</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#band-excitation-be-wave">Band Excitation (BE) Wave</a></li>
 </ul>
 </li>
 </ul>
