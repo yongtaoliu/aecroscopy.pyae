@@ -2,29 +2,36 @@ format: jb-book
 # format: jb-article
 root: welcome_intro
 parts:
-  - caption: Get Started
+  - caption: Chapter 1 - Get Started
     chapters:
-    - file: chapter_getstart/getstart_intro
-  - caption: Chapter 1 - Introduction
+    - file: chapter_1_getstart/getstart
+  - caption: Chapter 2 - Introduction
     chapters:
-    - file: chapter_1_introduction/Instruction_for_Cypher
-    - file: chapter_1_introduction/Instruction_for_WaveGenerator
-    - file: chapter_1_introduction/Instruction_for_WaveVI
-  - caption: Chapter 2 - LLM in AEcroscoPy
+    - file: chapter_2_introduction/Cypher
+    - file: chapter_2_introduction/Nanosurf
+    - file: chapter_2_introduction/WaveVI
+  - caption: Chapter 3 - Waveform Building
     chapters:
-    - file: chapter_2_llm_in_aecroscopy/llm_intro
-  - caption: Chapter 3 - Automated Experimentation
+    - file: chapter_3_waveform_building/WaveGenerator
+  - caption: Chapter 4 - LLM Agent
     chapters:
-    - file: chapter_3_automated_experimentation/ht_intro
-    - file: chapter_3_automated_experimentation/Pulse_at_Center_BackSwitch
-    - file: chapter_3_automated_experimentation/Pulse_at_Grid
-    - file: chapter_3_automated_experimentation/Pulse_at_Grid_CypherImage
-  - caption: Chapter 4 - Autonomous Experimentation
+    - file: chapter_4_llm_agent/llm_intro
+  - caption: Chapter 5 - Modes
     chapters:
-    - file: chapter_4_autonomous_experimentation/ae_intro
-  - caption: Chapter 5 - User Contribution
+    - file: chapter_5_modes/modes_intro
+    - file: chapter_5_modes/Auto3DPFM
+  - caption: Chapter 6 - Automated Experimentation
     chapters:
-    - file: chapter_5_user_contribution/uc_intro
-  - caption: Chapter 6 - Publications
+    - file: chapter_6_automated_experimentation/automated_intro
+    - file: chapter_6_automated_experimentation/Pulse_at_Center_BackSwitch
+    - file: chapter_6_automated_experimentation/Pulse_at_Grid
+    - file: chapter_6_automated_experimentation/Pulse_at_Grid_CypherImage
+  - caption: Chapter 7 - Autonomous Experimentation
     chapters:
-    - file: chapter_6_publications/pubs
+    - file: chapter_7_autonomous_experimentation/autonomous_intro
+  - caption: Chapter 8 - User Contribution
+    chapters:
+    - file: chapter_8_user_contribution/uc_intro
+  - caption: Chapter 9 - Publications
+    chapters:
+    - file: chapter_9_publications/pubs

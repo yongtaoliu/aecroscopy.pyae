@@ -1,13 +1,13 @@
-# About Autonomous Experiment
+# Autonomous Experimentation
 
 $_{Yongtao}$ $_{Liu,}$
-$_{youngtaoliu@gmail.com}$
+$_{liuy3@ornl.gov,}$ $_{youngtaoliu@gmail.com}$
 
-$_{March}$ $_{2026}$
+$_{July}$ $_{2026}$
 
 Autonomous experiments integrate artificial intelligence (AI) and machine learning (ML) for real-time data analysis, decision-making, optimization, and adaptation to enable experiments with minimal or no human intervention. Unlike automated experiments that follow a fixed script, autonomous experiments learn from each measurement and adjust subsequent steps accordingly.
 
-In this chapter, we introduce ML-driven experiment workflows constructed with AEcroscoPy for autonomous microscopy. The workflows in this chapter are grounded in the following papers:
+In this chapter, we introduce ML-driven experiment workflows constructed with AEcroscopy for autonomous microscopy. The workflows in this chapter are grounded in the following papers:
 
 1. **[Accelerating Structure-Property Relationship Discovery with Multimodal Machine Learning and Self-Driving Microscopy](https://arxiv.org/abs/2603.17028)**
    Gong, J. et al. *arXiv*, 2026.
