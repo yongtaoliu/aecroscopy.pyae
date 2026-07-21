@@ -1,0 +1,939 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Auto3DPFM &#8212; AEcroscopy</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'chapter_5_modes/Auto3DPFM';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://github.com/yongtaoliu/chapter_5_modes/Auto3DPFM.html" />
+    <link rel="icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Automated Experimentation" href="../chapter_6_automated_experimentation/automated_intro.html" />
+    <link rel="prev" title="Modes" href="modes_intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../welcome_intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="AEcroscopy - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="AEcroscopy - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../welcome_intro.html">
+                    Welcome to AEcroscopy
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 1 - Get Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_1_getstart/getstart.html">Get Started</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 2 - Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_introduction/Cypher.html">The Cypher Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_introduction/Nanosurf.html">The Nanosurf Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_2_introduction/WaveVI.html">The WaveVI Interface</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 3 - Waveform Building</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_3_waveform_building/WaveGenerator.html">Building Waveforms with WaveGenerator</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 4 - LLM Agent</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_4_llm_agent/llm_intro.html">LLM Agent</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 5 - Modes</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="modes_intro.html">Modes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Auto3DPFM</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 6 - Automated Experimentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_automated_experimentation/automated_intro.html">Automated Experimentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_automated_experimentation/Pulse_at_Center_BackSwitch.html">Automated Domain Writing: Pulse at Center with Backswitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_automated_experimentation/Pulse_at_Grid.html">Automated Domain Writing: Grid Pulsing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapter_6_automated_experimentation/Pulse_at_Grid_CypherImage.html">Automated Domain Writing: Grid Pulsing with Cypher Image</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 7 - Autonomous Experimentation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_7_autonomous_experimentation/autonomous_intro.html">Autonomous Experimentation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 8 - User Contribution</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_8_user_contribution/uc_intro.html">Contributing to AEcroscopy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Chapter 9 - Publications</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../chapter_9_publications/pubs.html">Publications</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/yongtaoliu/aecroscopy.pyae" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/chapter_5_modes/Auto3DPFM.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Auto3DPFM</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-run">Example Run</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-the-run">Configure the Run</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-transform">1. Coordinate Transform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autofocus">2. Autofocus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration-blind-spot-and-tip-height">3. Calibration: Blind Spot and Tip Height</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-scanning">4. Prepare for Scanning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-location-scans">5. Run the Location Scans</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-to-hdf5-nsid">6. Export to HDF5/NSID</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-result">Load the Result</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#amplitude-and-phase-maps">Amplitude and Phase Maps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-panel">Summary Panel</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="auto3dpfm">
+<h1>Auto3DPFM<a class="headerlink" href="#auto3dpfm" title="Link to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(_{Ralph}\)</span> <span class="math notranslate nohighlight">\(_{Bulanadi}\)</span> <span class="math notranslate nohighlight">\(_{(mode}\)</span> <span class="math notranslate nohighlight">\(_{author),}\)</span> <span class="math notranslate nohighlight">\(_{Yongtao}\)</span> <span class="math notranslate nohighlight">\(_{Liu,}\)</span> <span class="math notranslate nohighlight">\(_{liuy3&#64;ornl.gov,}\)</span> <span class="math notranslate nohighlight">\(_{youngtaoliu&#64;gmail.com}\)</span></p>
+<p><span class="math notranslate nohighlight">\(_{July}\)</span> <span class="math notranslate nohighlight">\(_{2026}\)</span></p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">aecroscopywave.modes.Auto3DPFM</span></code> automates 3D polarization-vector mapping — combining optical tip/sample positioning, autofocus, and piezoresponse force microscopy (PFM) measurement into one pipeline. It is grounded in:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/2512.09249">Bulanadi, Ralph, et al. “Auto-3DPFM: Automating Polarization-Vector Mapping at the Nanoscale.” arXiv:2512.09249 (2025).</a></p></li>
+</ul>
+<p>Broadly, the module groups into:</p>
+<ul class="simple">
+<li><p><strong>Autofocus</strong> — scoring image sharpness (variance-of-Laplacian, Tenengrad) to automatically focus the optical camera on the tip or sample.</p></li>
+<li><p><strong>Optical registration and coordinate transforms</strong> — locating the cantilever/laser spot in the optical image and converting between the microscope’s optical (“lab”), physical (“diamond”), and AFM (“Asylum”) coordinate systems, so a location picked in one can be reached in another.</p></li>
+<li><p><strong>Automated approach and tip positioning</strong> — driving the stage toward a target location using that coordinate transform, with reasonableness checks on each step.</p></li>
+<li><p><strong>Calibration routines</strong> — measuring the tip’s InvOLS, tip height, and blind-spot position needed to interpret PFM signal amplitude and phase correctly.</p></li>
+<li><p><strong>Data export</strong> — assembling the resulting scan positions and measurements into an HDF5/NSID file for downstream analysis.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlike the interfaces covered in Chapters 2–3, <code class="docutils literal notranslate"><span class="pre">Auto3DPFM</span></code> is tailored to CNMS’s specific rig — coordinate systems, file paths, and macro calls are specific to that setup rather than general-purpose. If you want to build a similar mode for your own instrument, read this module alongside the paper above.</p>
+</div>
+<p>The rest of this notebook walks through what using it actually looks like: an annotated transcript of a real acquisition run, followed by analysis of the data it produces.</p>
+</section>
+<section id="example-run">
+<h2>Example Run<a class="headerlink" href="#example-run" title="Link to this heading">#</a></h2>
+<p>What follows is a lightly annotated transcript of one real acquisition run on CNMS’s combined optical/AFM rig, adapted from the mode author’s own run script.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is <strong>not</strong> a runnable tutorial in the sense of Chapters 2–3. It requires the physical instrument, a custom Igor Pro procedure file (<code class="docutils literal notranslate"><span class="pre">igor_code.ipf</span></code>) loaded alongside it, and includes one manual step where the operator switches the alignment laser off by hand partway through. It’s included so you can see what a complete <code class="docutils literal notranslate"><span class="pre">Auto3DPFM</span></code> run looks like end to end — read it alongside the paper above rather than expecting to execute it as-is on different hardware.</p>
+</div>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Auto3DPFM</span></code> is a flat collection of functions rather than a class, so it’s imported with <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code> and called directly. It’s used together with <code class="docutils literal notranslate"><span class="pre">PyCypher</span></code> (Chapter 2) for the AFM side of the rig.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">aecroscopywave.modes.Auto3DPFM</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aecroscopywave.interfaces</span><span class="w"> </span><span class="kn">import</span> <span class="n">Cypher</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Connect to Igor Pro, load the custom procedure file this mode depends on, and read the current AFM state.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pyigor</span> <span class="o">=</span> <span class="n">Cypher</span><span class="o">.</span><span class="n">PyCypher</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="s2">&quot;orig_directory&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">():</span>
+    <span class="n">orig_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">pyigor</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="s1">&#39;NewPath/O mypath &quot;&#39;</span> <span class="o">+</span> <span class="n">Cypher</span><span class="o">.</span><span class="n">windows2igor</span><span class="p">(</span><span class="n">orig_directory</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+<span class="n">pyigor</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="s1">&#39;OpenProc /P=mypath /V=0 &quot;igor_code.ipf&quot;&#39;</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pyigor</span><span class="o">.</span><span class="n">DataFolder</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;root:packages:MFP3D:Main:Variables&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Wave</span><span class="p">(</span><span class="s2">&quot;MasterVariablesWave&quot;</span><span class="p">)</span>
+<span class="n">dim</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">GetDimensions</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">gmv</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+    <span class="n">gmv</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">DimensionLabel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">GetNumericWavePointValue</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The mode author’s original script calls a bare <code class="docutils literal notranslate"><span class="pre">windows2igor(...)</span></code>, which isn’t defined or imported anywhere in <code class="docutils literal notranslate"><span class="pre">Auto3DPFM.py</span></code> — it would raise <code class="docutils literal notranslate"><span class="pre">NameError</span></code> if run as published. It’s the same helper <code class="docutils literal notranslate"><span class="pre">PyCypher</span></code> itself uses internally, so <code class="docutils literal notranslate"><span class="pre">Cypher.windows2igor(...)</span></code> (as written above) is the fix, since <code class="docutils literal notranslate"><span class="pre">Cypher</span></code> is already imported.</p>
+</div>
+</section>
+<section id="configure-the-run">
+<h3>Configure the Run<a class="headerlink" href="#configure-the-run" title="Link to this heading">#</a></h3>
+<p>Where to save data for this run, and the base names used for images and the run log.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_loc</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\Asylum User\Desktop\STAFF Software\Auto-3DPFM_v1-2\Test&#39;</span>
+<span class="n">base_filename</span> <span class="o">=</span> <span class="s1">&#39;Image&#39;</span>
+<span class="n">log_filename</span> <span class="o">=</span> <span class="s1">&#39;Log_3DPFM&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="coordinate-transform">
+<h3>1. Coordinate Transform<a class="headerlink" href="#coordinate-transform" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Auto3DPFM</span></code> tracks the tip/laser spot through an optical camera, but drives the stage through the AFM’s own (“Asylum”) coordinates. <code class="docutils literal notranslate"><span class="pre">calculate_asylum_coordinate_to_lab_coordinate_transform()</span></code> moves to a few reference points, locates the laser spot optically at each one, and fits the affine transform <code class="docutils literal notranslate"><span class="pre">T</span></code> between the two coordinate systems — every later step that needs to reach a specific optical location uses this <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">calculate_asylum_coordinate_to_lab_coordinate_transform</span><span class="p">(</span>
+    <span class="n">pyigor</span><span class="p">,</span>
+    <span class="n">file_loc</span><span class="o">=</span><span class="n">file_loc</span><span class="p">,</span>
+    <span class="n">base_filename</span><span class="o">=</span><span class="n">base_filename</span><span class="p">,</span>
+    <span class="n">log_filename</span><span class="o">=</span><span class="n">log_filename</span><span class="p">,</span>
+    <span class="n">auto_calc_centre</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="autofocus">
+<h3>2. Autofocus<a class="headerlink" href="#autofocus" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">auto_focus_calc()</span></code> sweeps the optical camera’s focus motor and scores image sharpness (Tenengrad) at each step, separately for the region around the tip and the region around the sample, to find the two best focus heights. With <code class="docutils literal notranslate"><span class="pre">auto_calc_centre=True</span></code> it also asks the operator to switch the alignment laser off partway through, so the tip-focus region can be located without laser glare — <strong>this step blocks on <code class="docutils literal notranslate"><span class="pre">input()</span></code> until you do that and press Enter.</strong> <code class="docutils literal notranslate"><span class="pre">auto_focus_save()</span></code> then drives back to the two recovered focus positions and saves a reference image at each.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tip_focus</span><span class="p">,</span> <span class="n">sample_focus</span> <span class="o">=</span> <span class="n">auto_focus_calc</span><span class="p">(</span>
+    <span class="n">pyigor</span><span class="p">,</span>
+    <span class="n">file_loc</span><span class="o">=</span><span class="n">file_loc</span><span class="p">,</span>
+    <span class="n">base_filename</span><span class="o">=</span><span class="n">base_filename</span><span class="p">,</span>
+    <span class="n">log_filename</span><span class="o">=</span><span class="n">log_filename</span><span class="p">,</span>
+    <span class="n">save_plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">save_plot_filename</span><span class="o">=</span><span class="s1">&#39;FocusPlot&#39;</span><span class="p">,</span>
+    <span class="n">auto_calc_centre</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">step_size</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">laser_off_working</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># True for North, False for South</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">auto_focus_save</span><span class="p">(</span><span class="n">pyigor</span><span class="p">,</span> <span class="n">tip_focus</span><span class="p">,</span> <span class="n">sample_focus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calibration-blind-spot-and-tip-height">
+<h3>3. Calibration: Blind Spot and Tip Height<a class="headerlink" href="#calibration-blind-spot-and-tip-height" title="Link to this heading">#</a></h3>
+<p>Two calibration measurements the mode needs to interpret PFM amplitude and phase correctly:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">find_blind_spot_x()</span></code> sweeps the tip across a range of lateral positions looking for the cantilever’s blind spot — the point where the drive signal drops out because the laser is no longer hitting a usable part of the cantilever.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">measure_tip_height()</span></code> uses the coordinate transform <code class="docutils literal notranslate"><span class="pre">T</span></code> to measure the tip’s physical height offset.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">=</span> <span class="n">find_blind_spot_x</span><span class="p">(</span>
+    <span class="n">pyigor</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span>
+    <span class="n">file_loc</span><span class="o">=</span><span class="n">file_loc</span><span class="p">,</span>
+    <span class="n">base_filename</span><span class="o">=</span><span class="n">base_filename</span><span class="p">,</span>
+    <span class="n">log_filename</span><span class="o">=</span><span class="n">log_filename</span><span class="p">,</span>
+    <span class="n">measurement_positions</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="n">nominal_drive_frequency</span><span class="o">=</span><span class="mi">300000</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">measure_tip_height</span><span class="p">(</span>
+    <span class="n">pyigor</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span>
+    <span class="n">file_loc</span><span class="o">=</span><span class="n">file_loc</span><span class="p">,</span>
+    <span class="n">base_filename</span><span class="o">=</span><span class="n">base_filename</span><span class="p">,</span>
+    <span class="n">log_filename</span><span class="o">=</span><span class="n">log_filename</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="prepare-for-scanning">
+<h3>4. Prepare for Scanning<a class="headerlink" href="#prepare-for-scanning" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">reduce_frequency()</span></code> folds the current drive frequency down into a lower, more predictable band before scanning begins.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reduce_frequency</span><span class="p">(</span><span class="n">pyigor</span><span class="p">,</span> <span class="n">log_filename</span><span class="p">,</span> <span class="n">mod</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-the-location-scans">
+<h3>5. Run the Location Scans<a class="headerlink" href="#run-the-location-scans" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">run_tip_location_scans_at_points()</span></code> is where the actual PFM measurements happen: it drives the tip, via <code class="docutils literal notranslate"><span class="pre">T</span></code>, to a sequence of target locations and scans at each one. <code class="docutils literal notranslate"><span class="pre">sequence=['A',</span> <span class="pre">'X',</span> <span class="pre">'Y']</span></code> here means: the center (“Asylum” reference) position, then one step along the lab X axis, then one step along the lab Y axis — enough points to resolve the polarization vector, per the method in the paper.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filelist</span> <span class="o">=</span> <span class="n">run_tip_location_scans_at_points</span><span class="p">(</span>
+    <span class="n">pyigor</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span>
+    <span class="n">sequence</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">],</span>
+    <span class="n">file_loc</span><span class="o">=</span><span class="n">file_loc</span><span class="p">,</span>
+    <span class="n">base_filename</span><span class="o">=</span><span class="n">base_filename</span><span class="p">,</span>
+    <span class="n">log_filename</span><span class="o">=</span><span class="n">log_filename</span><span class="p">,</span>
+    <span class="n">dist_proportion_x</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">dist_proportion_y</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="export-to-hdf5-nsid">
+<h3>6. Export to HDF5/NSID<a class="headerlink" href="#export-to-hdf5-nsid" title="Link to this heading">#</a></h3>
+<p>Finally, <code class="docutils literal notranslate"><span class="pre">save_3DPFM_as_hdf5()</span></code> collects everything this run logged into a single HDF5/NSID file for downstream analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">file_loc</span><span class="p">)</span>
+<span class="n">save_3DPFM_as_hdf5</span><span class="p">(</span><span class="n">base_filename</span><span class="p">,</span> <span class="n">base_filename</span><span class="p">,</span> <span class="n">positions</span><span class="o">=</span><span class="s1">&#39;Theoretical&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-analysis">
+<h2>Data Analysis<a class="headerlink" href="#data-analysis" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">save_3DPFM_as_hdf5()</span></code> above wrote an HDF5/NSID file containing the reconstructed polarization vector field. This section loads it back and reproduces the kind of figures used in the paper: per-axis amplitude and phase maps, and a summary panel combining topography, the vertical PFM signal, and the in-plane polarization angle. It’s adapted from the mode author’s own analysis notebook.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section additionally needs <code class="docutils literal notranslate"><span class="pre">matplotlib-scalebar</span></code> (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">matplotlib-scalebar</span></code>), which — like <code class="docutils literal notranslate"><span class="pre">nanosurf</span></code> in Chapter 2 — is not a declared dependency of <code class="docutils literal notranslate"><span class="pre">aecroscopywave</span></code>.</p>
+</div>
+<section id="load-the-result">
+<h3>Load the Result<a class="headerlink" href="#load-the-result" title="Link to this heading">#</a></h3>
+<p>Read the <code class="docutils literal notranslate"><span class="pre">ux</span></code>, <code class="docutils literal notranslate"><span class="pre">uy</span></code>, <code class="docutils literal notranslate"><span class="pre">uz</span></code> polarization components and a reference topography channel back out of the file <code class="docutils literal notranslate"><span class="pre">save_3DPFM_as_hdf5()</span></code> wrote, and compute the total polarization magnitude.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">h5py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">hsv_to_rgb</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib_scalebar.scalebar</span><span class="w"> </span><span class="kn">import</span> <span class="n">ScaleBar</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">file_loc</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">base_filename</span> <span class="o">+</span> <span class="s1">&#39;.hf5&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">ux</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;3DPFM/ux&#39;</span><span class="p">][:]</span>
+    <span class="n">uy</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;3DPFM/uy&#39;</span><span class="p">][:]</span>
+    <span class="n">uz</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;3DPFM/uz&#39;</span><span class="p">][:]</span>
+
+    <span class="c1"># Channels are recorded under whichever of these labels the run used, in priority order.</span>
+    <span class="n">priority</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;BE&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;E&#39;</span><span class="p">]</span>
+    <span class="n">channel_group</span> <span class="o">=</span> <span class="nb">next</span><span class="p">((</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">priority</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="n">topo</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">channel_group</span> <span class="o">+</span> <span class="s1">&#39;/Channel_000/Channel_000/Channel_000&#39;</span><span class="p">][:]</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">channel_group</span> <span class="o">+</span> <span class="s1">&#39;/Channel_000/Channel_000/original_metadata&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;FastScanSize&#39;</span><span class="p">]</span>
+             <span class="o">/</span> <span class="n">f</span><span class="p">[</span><span class="n">channel_group</span> <span class="o">+</span> <span class="s1">&#39;/Channel_000/Channel_000/original_metadata&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;PointsLines&#39;</span><span class="p">])</span>
+
+<span class="n">U_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ux</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">uy</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">uz</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">U_mag_max</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">U_mag</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="amplitude-and-phase-maps">
+<h3>Amplitude and Phase Maps<a class="headerlink" href="#amplitude-and-phase-maps" title="Link to this heading">#</a></h3>
+<p>The total polarization magnitude <code class="docutils literal notranslate"><span class="pre">U</span></code> alongside each Cartesian component’s amplitude, then each component’s phase.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">param</span> <span class="o">=</span> <span class="p">[</span><span class="n">U_mag</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ux</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">uy</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">uz</span><span class="p">)]</span>
+<span class="n">title</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;$U$&#39;</span><span class="p">,</span> <span class="s1">&#39;$U_x$&#39;</span><span class="p">,</span> <span class="s1">&#39;$U_y$&#39;</span><span class="p">,</span> <span class="s1">&#39;$U_z$&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">param</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">U_mag_max</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">base_filename</span> <span class="o">+</span> <span class="s1">&#39;_amplitude.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">param</span> <span class="o">=</span> <span class="p">[(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">ux</span><span class="p">))</span> <span class="o">+</span> <span class="mi">90</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span><span class="p">,</span>
+         <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">uy</span><span class="p">))</span> <span class="o">+</span> <span class="mi">90</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span><span class="p">,</span>
+         <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">uz</span><span class="p">))</span> <span class="o">+</span> <span class="mi">90</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span><span class="p">]</span>
+<span class="n">title</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$\phi_x$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\phi_y$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\phi_z$&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">param</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">360</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">360</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">base_filename</span> <span class="o">+</span> <span class="s1">&#39;_phase.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-panel">
+<h3>Summary Panel<a class="headerlink" href="#summary-panel" title="Link to this heading">#</a></h3>
+<p>A five-panel figure combining topography (with a physical scale bar via <code class="docutils literal notranslate"><span class="pre">scale</span></code>), the vertical PFM amplitude and phase, the total in-plane+out-of-plane amplitude, and the in-plane polarization angle. The in-plane angle panel encodes direction as hue and magnitude as brightness (HSV), the same convention the paper uses for its polarization maps.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Height&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">topo</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;copper&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">topo</span><span class="p">),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">topo</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">scalebar</span> <span class="o">=</span> <span class="n">ScaleBar</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">,</span> <span class="n">font_properties</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">scalebar</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;V. Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">uz</span><span class="p">),</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">2e-11</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;V. Phase&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">uz</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Total Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">U_mag</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">U_mag_max</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;In-Plane Polarization Angle&#39;</span><span class="p">)</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">uy</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">ux</span><span class="p">))</span>
+<span class="n">magnitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">uy</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ux</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">50</span>
+<span class="n">H</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span> <span class="o">%</span> <span class="mi">360</span><span class="p">)</span> <span class="o">/</span> <span class="mf">360.0</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="n">V</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">magnitude</span><span class="p">)</span> <span class="o">/</span> <span class="n">U_mag_max</span>
+<span class="n">RGB</span> <span class="o">=</span> <span class="n">hsv_to_rgb</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">H</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">V</span><span class="p">),</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">RGB</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">base_filename</span> <span class="o">+</span> <span class="s1">&#39;_summary.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The library’s own <code class="docutils literal notranslate"><span class="pre">notebooks/3DPFM_Analysis.ipynb</span></code> goes further still — cropped in-plane orientation arrow (quiver) plots, alternate colormaps, and more. Use this section as a starting point, not the full toolkit.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./chapter_5_modes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="modes_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Modes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../chapter_6_automated_experimentation/automated_intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Automated Experimentation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-run">Example Run</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-the-run">Configure the Run</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-transform">1. Coordinate Transform</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#autofocus">2. Autofocus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calibration-blind-spot-and-tip-height">3. Calibration: Blind Spot and Tip Height</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-for-scanning">4. Prepare for Scanning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-location-scans">5. Run the Location Scans</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-to-hdf5-nsid">6. Export to HDF5/NSID</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-analysis">Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-result">Load the Result</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#amplitude-and-phase-maps">Amplitude and Phase Maps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-panel">Summary Panel</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By AEcroscopy Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
