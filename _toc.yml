@@ -23,9 +23,7 @@ parts:
   - caption: Chapter 6 - Automated Experimentation
     chapters:
     - file: chapter_6_automated_experimentation/automated_intro
-    - file: chapter_6_automated_experimentation/Pulse_at_Center_BackSwitch
-    - file: chapter_6_automated_experimentation/Pulse_at_Grid
-    - file: chapter_6_automated_experimentation/Pulse_at_Grid_CypherImage
+    - file: chapter_6_automated_experimentation/Domain_Writing
   - caption: Chapter 7 - Autonomous Experimentation
     chapters:
     - file: chapter_7_autonomous_experimentation/autonomous_intro
