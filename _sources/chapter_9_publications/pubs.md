@@ -5,7 +5,7 @@ $_{liuy3@ornl.gov,}$ $_{youngtaoliu@gmail.com}$
 
 $_{July}$ $_{2026}$
 
-This chapter lists peer-reviewed publications and preprints on automated and autonomous scanning probe microscopy that are built on, demonstrate, or are reproducible with AEcroscopy. The works span a range of topics including active learning, deep kernel learning, hypothesis-driven experimentation, agentic AI, and high-throughput characterization of ferroelectric and perovskite materials.
+This chapter lists peer-reviewed publications and preprints on automated and autonomous microscopy that are built on, demonstrate, or are reproducible with AEcroscopy. The works span a range of topics including active learning, deep kernel learning, hypothesis-driven experimentation, agentic AI, and high-throughput characterization of ferroelectric and perovskite materials.
 
 ## 2026
 
