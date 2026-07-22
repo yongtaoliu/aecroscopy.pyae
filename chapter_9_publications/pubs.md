@@ -23,9 +23,9 @@ This chapter lists peer-reviewed publications and preprints on automated and aut
 
 **22.** [Liu, Yongtao, et al. "Polarization Switching on the Open Surfaces of the Wurtzite Ferroelectric Nitrides: Ferroelectric Subsystems and Electrochemical Reactivity." Advanced Materials (2025).](https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adma.202511001)
 
-**21.** ["Autonomous Multistate Nanoencoding Using Combinatorial Ferroelectric Closure Domains in BiFeO₃." ACS Nano (2025).](https://pubs.acs.org/doi/abs/10.1021/acsnano.5c07423)
+**21.** [Checa, Marti, et al. "Autonomous Multistate Nanoencoding Using Combinatorial Ferroelectric Closure Domains in BiFeO₃." ACS Nano (2025).](https://pubs.acs.org/doi/abs/10.1021/acsnano.5c07423)
 
-**20.** ["Beyond Optimization: Exploring Novelty Discovery in Autonomous Experiments." ACS Nanoscience Au (2025).](https://pubs.acs.org/doi/full/10.1021/acsnanoscienceau.5c00106)
+**20.** [Bulanadi, Ralph, et al. "Beyond Optimization: Exploring Novelty Discovery in Autonomous Experiments." ACS Nanoscience Au (2025).](https://pubs.acs.org/doi/full/10.1021/acsnanoscienceau.5c00106)
 
 **19.** [Pratiush, Utkarsh, et al. "Scientific Exploration with Expert Knowledge (SEEK) in Autonomous Scanning Probe Microscopy with Active Learning." Digital Discovery 4 (2025): 252–263.](https://pubs.rsc.org/en/content/articlehtml/2025/dd/d4dd00277f)
 
@@ -41,7 +41,7 @@ This chapter lists peer-reviewed publications and preprints on automated and aut
 
 **14.** [Yang, J., et al. "Coexistence and Interplay of Two Ferroelectric Mechanisms in Zn₁₋ₓMgₓO." Advanced Materials (2024).](https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adma.202404925)
 
-**13.** ["On-demand nanoengineering of in-plane ferroelectric topologies." Nature Nanotechnology (2024).](https://www.nature.com/articles/s41565-024-01792-1)
+**13.** [Checa, Marti, et al. "On-demand nanoengineering of in-plane ferroelectric topologies." Nature Nanotechnology (2024).](https://www.nature.com/articles/s41565-024-01792-1)
 
 **12.** [Smith, Benjamin, et al. "Physics-informed models of domain wall dynamics as a route for autonomous domain wall design via reinforcement learning." Digital Discovery (2024).](https://pubs.rsc.org/en/content/articlehtml/2024/dd/d3dd00126a)
 
